@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Portfolio</title>
+<meta name="description" content="Personal portfolio of Your Name.">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Applied before paint so there's no flash of the wrong theme.
+  var storedTheme = localStorage.getItem("theme");
+  if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <span class="logo">YN</span>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <!-- Replace with <img src="avatar.jpg" alt="Your Name" class="avatar"> once you have a photo -->
+    <div class="avatar" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+    </div>
+    <h1>Your Name</h1>
+    <p class="tagline">Software developer building thoughtful, useful things.</p>
+    <div class="hero-links">
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:you@example.com">Email</a>
+    </div>
+  </section>
+
+  <section id="about" class="about wrap">
+    <h2>About</h2>
+    <p>
+      I'm a developer who enjoys turning ideas into simple, working software.
+      This is a short bio — swap in a few sentences about your background,
+      what you work on, and what you're interested in. Keep it to 2–4
+      sentences so it stays easy to scan.
+    </p>
+  </section>
+
+  <section id="work" class="projects wrap">
+    <h2>Projects</h2>
+    <div class="project-grid">
+
+      <article class="project-card">
+        <h3>Project One</h3>
+        <p>A short one- or two-sentence description of what this project does and why it's interesting.</p>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">Live</a>
+          <a href="#" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h3>Project Two</h3>
+        <p>A short one- or two-sentence description of what this project does and why it's interesting.</p>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">Live</a>
+          <a href="#" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <h3>Project Three</h3>
+        <p>A short one- or two-sentence description of what this project does and why it's interesting.</p>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">Live</a>
+          <a href="#" target="_blank" rel="noopener">Code</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact wrap">
+    <h2>Contact</h2>
+    <p>Have a question or want to work together? Send a message below.</p>
+
+    <form id="contact-form" class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+      <p id="form-status" class="form-status" role="status"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer wrap">
+  <p>&copy; <span id="year"></span> Your Name.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
