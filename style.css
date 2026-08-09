@@ -203,6 +203,15 @@ section h2 {
   padding: 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.project-thumb {
+  display: block;
+  width: calc(100% + 40px);
+  margin: -20px -20px 16px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 }
 
 .project-card h3 {
@@ -227,6 +236,30 @@ section h2 {
 
 .project-links a:hover {
   border-color: var(--text);
+}
+
+/* Testimonials */
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonial {
+  margin: 0;
+  padding: 0 0 0 16px;
+  border-left: 2px solid var(--border);
+}
+
+.testimonial p {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.testimonial footer {
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 /* Contact */
