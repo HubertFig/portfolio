@@ -390,6 +390,16 @@ img.avatar {
   flex-wrap: wrap;
 }
 
+.role-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0 0 var(--space-3);
+}
+
 .hero-email {
   font-size: var(--text-sm);
   color: var(--muted);
@@ -397,10 +407,56 @@ img.avatar {
 }
 
 /* ============================================
+   Proof bands: worked-with + featured quote
+   ============================================ */
+.band {
+  padding: var(--space-6) 0;
+}
+
+.worked-with-inner {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.worked-with-label {
+  flex-shrink: 0;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.worked-with-list {
+  color: var(--text);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.featured-quote {
+  background: var(--bg-alt);
+}
+
+.featured-quote .pull-quote {
+  font-size: clamp(1.25rem, 1rem + 1.3vw, 1.75rem);
+}
+
+.featured-quote-attr {
+  margin: var(--space-3) 0 0;
+  padding-left: calc(var(--space-5) + 3px);
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+/* ============================================
    About
    ============================================ */
 .about {
-  padding: var(--space-9) clamp(20px, 5vw, 40px);
+  background: var(--bg-alt);
+  padding: var(--space-9) 0;
 }
 
 .about-body p {
@@ -417,7 +473,7 @@ img.avatar {
    Work (project index list)
    ============================================ */
 .work {
-  background: var(--bg-alt);
+  background: var(--bg);
   padding: var(--space-9) 0;
 }
 
@@ -947,6 +1003,15 @@ textarea.field-input {
   .hero {
     padding-top: var(--space-7);
     padding-bottom: var(--space-7);
+  }
+
+  .band {
+    padding: var(--space-5) 0;
+  }
+
+  .worked-with-inner {
+    flex-direction: column;
+    gap: var(--space-2);
   }
 
   .about, .work, .reviews, .contact {
