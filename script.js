@@ -15,6 +15,25 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", next);
 });
 
+// Mobile nav: collapsible menu below ~640px, where the full link row no longer fits.
+const navToggle = document.getElementById("nav-toggle");
+const siteNav = document.getElementById("site-nav");
+
+function closeNav() {
+  navToggle.setAttribute("aria-expanded", "false");
+  siteNav.classList.remove("open");
+}
+
+navToggle.addEventListener("click", () => {
+  const expanded = navToggle.getAttribute("aria-expanded") === "true";
+  navToggle.setAttribute("aria-expanded", String(!expanded));
+  siteNav.classList.toggle("open");
+});
+
+siteNav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", closeNav);
+});
+
 // Testimonials: clamp to 3 lines, expand on click/Enter/Space when truncated.
 document.querySelectorAll(".testimonial").forEach((card) => {
   const quote = card.querySelector(".testimonial-quote p");

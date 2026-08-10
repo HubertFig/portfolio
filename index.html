@@ -19,16 +19,22 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="logo" href="#">HF</a>
-    <nav class="site-nav">
-      <a href="#work" class="link-underline">Work</a>
-      <a href="#about" class="link-underline">About</a>
-      <a href="#reviews" class="link-underline">Reviews</a>
-      <a href="#contact" class="link-underline">Contact</a>
+    <div class="header-controls">
+      <nav class="site-nav" id="site-nav">
+        <a href="#work" class="link-underline">Work</a>
+        <a href="#about" class="link-underline">About</a>
+        <a href="#reviews" class="link-underline">Reviews</a>
+        <a href="#contact" class="link-underline">Contact</a>
+      </nav>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-    </nav>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -72,9 +78,11 @@
       <div class="work-list">
 
         <a class="work-item" href="projects/erasmus-mc.html">
-          <span class="work-index">01</span>
           <div class="work-info">
-            <h3>Erasmus MC</h3>
+            <div class="work-heading">
+              <span class="work-index">01</span>
+              <h3>Erasmus MC</h3>
+            </div>
             <p class="work-tag">UX Design</p>
             <p class="work-desc">Cardiology patients kept forgetting to log their fluid intake on paper. I designed Druppie, a mascot-led tracker that made it automatic.</p>
           </div>
@@ -85,9 +93,11 @@
         </a>
 
         <a class="work-item" href="projects/icemobile.html">
-          <span class="work-index">02</span>
           <div class="work-info">
-            <h3>Clubleaf &times; IceMobile</h3>
+            <div class="work-heading">
+              <span class="work-index">02</span>
+              <h3>Clubleaf &times; IceMobile</h3>
+            </div>
             <p class="work-tag">UX Design</p>
             <p class="work-desc">Only 43% of Picnic shoppers considered sustainability while shopping. I designed nudges and rewards that changed that &mdash; without the lecture.</p>
           </div>
@@ -98,9 +108,11 @@
         </a>
 
         <a class="work-item" href="projects/wereldmuseum.html">
-          <span class="work-index">03</span>
           <div class="work-info">
-            <h3>Wereldmuseum Amsterdam</h3>
+            <div class="work-heading">
+              <span class="work-index">03</span>
+              <h3>Wereldmuseum Amsterdam</h3>
+            </div>
             <p class="work-tag">Service Design</p>
             <p class="work-desc">After rebranding, the museum struggled to feel relevant to its neighborhood. I designed an exhibition that invited residents to become part of the story.</p>
           </div>
