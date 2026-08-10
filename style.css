@@ -872,6 +872,51 @@ textarea.field-input {
   color: var(--text);
 }
 
+.contribution {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.contribution-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 var(--space-4);
+}
+
+.contribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.contribution-list div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contribution-list dt {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.contribution-list dd {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--text-sm);
+  max-width: 56ch;
+}
+
 .case-hero-wrap {
   max-width: var(--wide-width);
   margin: var(--space-8) auto;
