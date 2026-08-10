@@ -34,15 +34,21 @@ siteNav.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeNav);
 });
 
-// Testimonials: clamp to 3 lines, expand on click/Enter/Space when truncated.
+// Testimonials: clamp to 2 lines, expand on click/Enter/Space when truncated.
+// Cards that don't actually overflow stay plain, non-interactive text --
+// otherwise they'd be a focusable "button" that does nothing when activated.
 document.querySelectorAll(".testimonial").forEach((card) => {
   const quote = card.querySelector(".testimonial-quote p");
-  if (quote.scrollHeight > quote.clientHeight + 1) {
-    card.classList.add("has-overflow");
-  }
+  const isOverflowing = quote.scrollHeight > quote.clientHeight + 1;
+  if (!isOverflowing) return;
+
+  card.classList.add("has-overflow");
+  card.setAttribute("role", "button");
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("aria-expanded", "false");
+  card.setAttribute("aria-label", `Expand full review from ${card.dataset.name}`);
 
   function toggle() {
-    if (!card.classList.contains("has-overflow")) return;
     const expanded = card.getAttribute("aria-expanded") === "true";
     card.setAttribute("aria-expanded", String(!expanded));
   }

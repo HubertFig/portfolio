@@ -14,13 +14,15 @@
   if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
 </script>
 </head>
-<body>
+<body id="top">
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="logo" href="#">HF</a>
+    <a class="logo" href="#top">HF</a>
     <div class="header-controls">
-      <nav class="site-nav" id="site-nav">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="#work" class="link-underline">Work</a>
         <a href="#about" class="link-underline">About</a>
         <a href="#reviews" class="link-underline">Reviews</a>
@@ -38,7 +40,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
   <section class="hero wrap">
     <!-- Replace with <img src="avatar.jpg" alt="Hubert Figaroa" class="avatar"> once you have a photo -->
@@ -50,7 +52,7 @@
     <p class="role-label">UX &amp; Service Designer</p>
     <p class="tagline">I help hospitals, retailers, and museums turn complicated systems into experiences people actually want to use.</p>
     <div class="hero-actions">
-      <a href="#work" class="btn btn-primary">View my work<span class="btn-arrow">&rarr;</span></a>
+      <a href="#work" class="btn btn-primary">View my work<span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
       <a href="mailto:info@hubertfigaroa.com" class="btn btn-outline">Get in touch</a>
     </div>
   </section>
@@ -87,7 +89,7 @@
             <p class="work-desc">Cardiology patients kept forgetting to log their fluid intake on paper. I designed Druppie, a mascot-led tracker that made it automatic.</p>
           </div>
           <div class="work-thumb">
-            <img src="images/erasmus-mc.png" alt="Erasmus MC &mdash; Druppie fluid balance concept" loading="lazy">
+            <img src="images/erasmus-mc.png" alt="" loading="lazy">
           </div>
           <span class="work-arrow" aria-hidden="true">&rarr;</span>
         </a>
@@ -102,7 +104,7 @@
             <p class="work-desc">Only 43% of Picnic shoppers considered sustainability while shopping. I designed nudges and rewards that changed that &mdash; without the lecture.</p>
           </div>
           <div class="work-thumb">
-            <img src="images/icemobile.png" alt="Clubleaf x IceMobile sustainable shopping concept" loading="lazy">
+            <img src="images/icemobile.png" alt="" loading="lazy">
           </div>
           <span class="work-arrow" aria-hidden="true">&rarr;</span>
         </a>
@@ -117,7 +119,7 @@
             <p class="work-desc">After rebranding, the museum struggled to feel relevant to its neighborhood. I designed an exhibition that invited residents to become part of the story.</p>
           </div>
           <div class="work-thumb">
-            <img src="images/wereldmuseum.jpg" alt="Wereldmuseum Amsterdam Neighborhood Stories concept" loading="lazy">
+            <img src="images/wereldmuseum.jpg" alt="" loading="lazy">
           </div>
           <span class="work-arrow" aria-hidden="true">&rarr;</span>
         </a>
@@ -161,7 +163,7 @@
       </div>
       <div class="testimonial-list">
 
-        <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Robin Sinke">
+        <div class="testimonial" data-name="Robin Sinke">
           <div class="testimonial-header">
             <div class="testimonial-avatar" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
@@ -177,7 +179,7 @@
           <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
         </div>
 
-        <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Rik de Vette">
+        <div class="testimonial" data-name="Rik de Vette">
           <div class="testimonial-header">
             <div class="testimonial-avatar" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
@@ -193,7 +195,7 @@
           <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
         </div>
 
-        <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Rianne Eping">
+        <div class="testimonial" data-name="Rianne Eping">
           <div class="testimonial-header">
             <div class="testimonial-avatar" aria-hidden="true">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
@@ -204,7 +206,7 @@
             </div>
           </div>
           <blockquote class="testimonial-quote">
-            <p>"Samen met Hubert heb ik aan de online validatieflow (iDIN) van PostNL gewerkt. Hij is een fijn en gezellig persoon om mee samen te werken en komt met verfrissende idee&euml;n."</p>
+            <p lang="nl">"Samen met Hubert heb ik aan de online validatieflow (iDIN) van PostNL gewerkt. Hij is een fijn en gezellig persoon om mee samen te werken en komt met verfrissende idee&euml;n."</p>
           </blockquote>
           <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
         </div>
@@ -228,12 +230,12 @@
       <form id="contact-form" class="contact-form">
         <div class="field">
           <label for="name">Name</label>
-          <input class="field-input" type="text" id="name" name="name" required>
+          <input class="field-input" type="text" id="name" name="name" autocomplete="name" required>
         </div>
 
         <div class="field">
           <label for="email">Email</label>
-          <input class="field-input" type="email" id="email" name="email" required>
+          <input class="field-input" type="email" id="email" name="email" autocomplete="email" required>
         </div>
 
         <div class="field">
@@ -241,7 +243,7 @@
           <textarea class="field-input" id="message" name="message" rows="5" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Send message<span class="btn-arrow">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary">Send message<span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
         <p id="form-status" class="form-status" role="status"></p>
       </form>
     </div>
@@ -252,7 +254,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <p>&copy; <span id="year"></span> Hubert Figaroa</p>
-    <a href="#" class="back-to-top link-underline">Back to top &uarr;</a>
+    <a href="#top" class="back-to-top link-underline">Back to top<span aria-hidden="true"> &uarr;</span></a>
   </div>
 </footer>
 

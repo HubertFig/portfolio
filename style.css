@@ -7,7 +7,8 @@
   --text: #211e19;
   --muted: #6e6858;
   --border: #e2ddd0;
-  --accent: #ae4e29;
+  --border-strong: var(--muted);
+  --accent: #9a4020;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -58,7 +59,7 @@
   --text: #211e19;
   --muted: #6e6858;
   --border: #e2ddd0;
-  --accent: #ae4e29;
+  --accent: #9a4020;
 }
 
 :root[data-theme="dark"] {
@@ -122,6 +123,25 @@ section:first-of-type {
 /* Sit sections flush against a sticky header without heading collisions on anchor jumps */
 [id] {
   scroll-margin-top: 96px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  background: var(--text);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: top var(--dur-fast) var(--ease);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
 }
 
 /* ============================================
@@ -223,7 +243,7 @@ section:first-of-type {
 .btn-outline {
   background: transparent;
   color: var(--text);
-  border-color: var(--border);
+  border-color: var(--border-strong);
 }
 
 .btn-outline:hover {
@@ -292,7 +312,7 @@ section:first-of-type {
   height: 34px;
   padding: 0;
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: 50%;
   color: var(--muted);
   cursor: pointer;
@@ -315,7 +335,7 @@ section:first-of-type {
   height: 34px;
   padding: 0;
   background: transparent;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: 50%;
   color: var(--muted);
   cursor: pointer;
@@ -616,6 +636,9 @@ img.avatar {
 .testimonial {
   padding: var(--space-6) 0;
   border-top: 1px solid var(--border);
+}
+
+.testimonial.has-overflow {
   cursor: pointer;
 }
 
@@ -771,21 +794,22 @@ img.avatar {
   color: var(--text);
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-strong);
   border-radius: 0;
   padding: var(--space-2) var(--space-1);
   transition: border-color var(--dur-fast) var(--ease);
 }
 
 textarea.field-input {
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: var(--space-3);
   resize: vertical;
 }
 
 .field-input:focus {
-  outline: none;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
   border-color: var(--accent);
 }
 
@@ -1054,7 +1078,7 @@ textarea.field-input {
   margin: 0;
 }
 
-.next-project-link h3 {
+.next-project-link h2 {
   font-size: var(--display-sm);
   font-weight: 500;
   margin: var(--space-2) 0 0;
@@ -1066,8 +1090,8 @@ textarea.field-input {
   font-size: 1.3rem;
 }
 
-.next-project-link:hover h3,
-.next-project-link:focus-visible h3 {
+.next-project-link:hover h2,
+.next-project-link:focus-visible h2 {
   color: var(--accent);
 }
 
@@ -1175,5 +1199,17 @@ textarea.field-input {
   :root {
     --content-width: 1040px;
     --wide-width: 1280px;
+  }
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

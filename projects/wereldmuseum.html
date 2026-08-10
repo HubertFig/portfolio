@@ -14,13 +14,15 @@
   if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
 </script>
 </head>
-<body>
+<body id="top">
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="logo" href="../index.html">HF</a>
     <div class="header-controls">
-      <nav class="site-nav" id="site-nav">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
         <a href="../index.html#work" class="link-underline">Work</a>
         <a href="../index.html#about" class="link-underline">About</a>
         <a href="../index.html#reviews" class="link-underline">Reviews</a>
@@ -38,10 +40,10 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <article class="case-study">
     <div class="wrap">
-      <a class="back-link link-underline" href="../index.html#work">&larr; Back to work</a>
+      <a class="back-link link-underline" href="../index.html#work"><span aria-hidden="true">&larr; </span>Back to work</a>
       <p class="case-eyebrow">Service Design</p>
       <h1>Wereldmuseum Amsterdam</h1>
       <p class="case-tagline">A concept inviting local residents to share their personal stories, heritage, and culture through a dedicated Neighborhood Stories Exhibition.</p>
@@ -66,7 +68,7 @@
     </div>
 
     <div class="case-hero-wrap">
-      <img src="../images/wereldmuseum.jpg" alt="Wereldmuseum Amsterdam Neighborhood Stories concept" class="case-hero-image">
+      <img src="../images/wereldmuseum.jpg" alt="A person's hands typing on a laptop displaying the Wereldmuseum website, seated at a table near a window." class="case-hero-image">
     </div>
 
     <div class="wrap case-body">
@@ -129,7 +131,7 @@
     <div class="wrap">
       <a class="next-project-link" href="erasmus-mc.html">
         <span class="eyebrow">Next project</span>
-        <h3>Erasmus MC <span class="btn-arrow">&rarr;</span></h3>
+        <h2>Erasmus MC <span class="btn-arrow" aria-hidden="true">&rarr;</span></h2>
       </a>
     </div>
   </nav>
@@ -138,7 +140,7 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <p>&copy; <span id="year"></span> Hubert Figaroa</p>
-    <a href="#" class="back-to-top link-underline">Back to top &uarr;</a>
+    <a href="#top" class="back-to-top link-underline">Back to top<span aria-hidden="true"> &uarr;</span></a>
   </div>
 </footer>
 
