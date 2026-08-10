@@ -44,31 +44,33 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = form.querySelector("button");
-  button.disabled = true;
-  status.textContent = "Sending...";
-  status.className = "form-status";
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = form.querySelector("button");
+    button.disabled = true;
+    status.textContent = "Sending...";
+    status.className = "form-status";
 
-  try {
-    const response = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: new FormData(form),
-    });
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
 
-    if (response.ok) {
-      status.textContent = "Thanks \u2014 your message has been sent.";
-      status.className = "form-status success";
-      form.reset();
-    } else {
-      throw new Error("Request failed");
+      if (response.ok) {
+        status.textContent = "Thanks \u2014 your message has been sent.";
+        status.className = "form-status success";
+        form.reset();
+      } else {
+        throw new Error("Request failed");
+      }
+    } catch (err) {
+      status.textContent = "Something went wrong. Please email me directly instead.";
+      status.className = "form-status error";
+    } finally {
+      button.disabled = false;
     }
-  } catch (err) {
-    status.textContent = "Something went wrong. Please email me directly instead.";
-    status.className = "form-status error";
-  } finally {
-    button.disabled = false;
-  }
-});
+  });
+}
