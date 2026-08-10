@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wereldmuseum Amsterdam &mdash; Hubert Figaroa</title>
 <meta name="description" content="Service Design case study: Neighborhood Stories, a community exhibition concept for Wereldmuseum Amsterdam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <script>
   var storedTheme = localStorage.getItem("theme");
@@ -14,13 +17,13 @@
 <body>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap header-inner">
     <a class="logo" href="../index.html">HF</a>
-    <nav>
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#reviews">Reviews</a>
-      <a href="../index.html#contact">Contact</a>
+    <nav class="site-nav">
+      <a href="../index.html#work" class="link-underline">Work</a>
+      <a href="../index.html#about" class="link-underline">About</a>
+      <a href="../index.html#reviews" class="link-underline">Reviews</a>
+      <a href="../index.html#contact" class="link-underline">Contact</a>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -30,58 +33,93 @@
 </header>
 
 <main>
-  <article class="case-study wrap">
-    <a class="back-link" href="../index.html#work">&larr; Back to projects</a>
+  <article class="case-study">
+    <div class="wrap">
+      <a class="back-link link-underline" href="../index.html#work">&larr; Back to work</a>
+      <p class="case-eyebrow">Service Design</p>
+      <h1>Wereldmuseum Amsterdam</h1>
+      <p class="case-tagline">A concept inviting local residents to share their personal stories, heritage, and culture through a dedicated Neighborhood Stories Exhibition.</p>
+      <dl class="case-meta-list">
+        <div><dt>Role</dt><dd>Service Designer</dd></div>
+        <div><dt>For</dt><dd>Wereldmuseum Amsterdam</dd></div>
+      </dl>
+    </div>
 
-    <img src="../images/wereldmuseum.jpg" alt="Wereldmuseum Amsterdam Neighborhood Stories concept" class="case-hero-image">
+    <div class="case-hero-wrap">
+      <img src="../images/wereldmuseum.jpg" alt="Wereldmuseum Amsterdam Neighborhood Stories concept" class="case-hero-image">
+    </div>
 
-    <h1>Wereldmuseum Amsterdam</h1>
-    <p class="case-meta">Service Design &mdash; Service Designer</p>
-    <p class="case-tagline">A concept inviting local residents to share their personal stories, heritage, and culture through a dedicated Neighborhood Stories Exhibition.</p>
+    <div class="wrap case-body">
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">01</span>
+          <h2>Design challenge</h2>
+        </div>
+        <blockquote class="pull-quote">How can we add a new experience to the Wereldmuseum for local residents to share their cultural background, fostering a more positive experience and strengthening their connection to the neighborhood?</blockquote>
+      </section>
 
-    <section class="case-section">
-      <h2>Design challenge</h2>
-      <p>"How can we add a new experience to the Wereldmuseum for local residents to share their cultural background, fostering a more positive experience and strengthening their connection to the neighborhood?"</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">02</span>
+          <h2>Problem analysis</h2>
+        </div>
+        <p>During our assignment for Het Wereldmuseum, we identified several key challenges. Through discussions with the client and additional research, we visualized the issues using the Fishbone Method, which helped us map the underlying causes of the problems.</p>
+        <p><strong>Research methods:</strong> interviews, observations, trend analysis.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Problem analysis</h2>
-      <p>During our assignment for Het Wereldmuseum, we identified several key challenges. Through discussions with the client and additional research, we visualized the issues using the Fishbone Method, which helped us map the underlying causes of the problems.</p>
-      <p><strong>Research methods:</strong> interviews, observations, trend analysis.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">03</span>
+          <h2>Findings</h2>
+        </div>
+        <ul>
+          <li><strong>Pandemic impact</strong> &mdash; visitor numbers dropped significantly during COVID-19 and remain below pre-2019 levels. Larger museums have recovered faster, suggesting a structural issue in regaining visitors.</li>
+          <li><strong>Brand awareness</strong> &mdash; the museum rebranded from Tropenmuseum to Wereldmuseum on October 4, 2023, to emphasize inclusivity and global focus. However, poor communication means many still associate it with its old name, limiting visibility and appeal.</li>
+          <li><strong>Spatial layout</strong> &mdash; the museum lacks a clear layout, leaving visitors unguided. While intentional, this can cause confusion and lower engagement compared to other museums with more intuitive navigation.</li>
+        </ul>
+      </section>
 
-    <section class="case-section">
-      <h2>Findings</h2>
-      <ul>
-        <li><strong>Pandemic impact</strong> &mdash; visitor numbers dropped significantly during COVID-19 and remain below pre-2019 levels. Larger museums have recovered faster, suggesting a structural issue in regaining visitors.</li>
-        <li><strong>Brand awareness</strong> &mdash; the museum rebranded from Tropenmuseum to Wereldmuseum on October 4, 2023, to emphasize inclusivity and global focus. However, poor communication means many still associate it with its old name, limiting visibility and appeal.</li>
-        <li><strong>Spatial layout</strong> &mdash; the museum lacks a clear layout, leaving visitors unguided. While intentional, this can cause confusion and lower engagement compared to other museums with more intuitive navigation.</li>
-      </ul>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">04</span>
+          <h2>Proposition: "Neighborhood Stories"</h2>
+        </div>
+        <p>We proposed a temporary exhibition where local residents contribute personal artifacts and stories representing their cultural heritage. This exhibit highlights the diversity of the surrounding community, fostering a sense of belonging and mutual appreciation.</p>
+        <ul>
+          <li>Invitations personalized for local residents, delivered as postcards with a QR code for participation.</li>
+          <li>User-generated content shared on social media to amplify visibility and engagement.</li>
+          <li>A welcoming launch event with cultural tastings and storytelling.</li>
+        </ul>
+      </section>
 
-    <section class="case-section">
-      <h2>Proposition: "Neighborhood Stories"</h2>
-      <p>We proposed a temporary exhibition where local residents contribute personal artifacts and stories representing their cultural heritage. This exhibit highlights the diversity of the surrounding community, fostering a sense of belonging and mutual appreciation.</p>
-      <ul>
-        <li>Invitations personalized for local residents, delivered as postcards with a QR code for participation.</li>
-        <li>User-generated content shared on social media to amplify visibility and engagement.</li>
-        <li>A welcoming launch event with cultural tastings and storytelling.</li>
-      </ul>
-    </section>
-
-    <section class="case-section">
-      <h2>Prototype overview</h2>
-      <p>The "Neighborhood Stories" prototype combines a physical invitation and a digital platform to engage the community effectively.</p>
-      <p><strong>Physical invitation</strong> &mdash; a postcard design that's easy to distribute and creates a personal connection, with a QR code directing recipients to a dedicated landing page.</p>
-      <p><strong>Digital landing page</strong> &mdash; designed for two distinct audiences with clear, intentional calls to action: visitors who wish to contribute an artifact can access a registration form, while those who simply want to attend can register separately.</p>
-      <p><strong>Visitor registration form</strong> &mdash; for attendees who wish to enjoy the exhibition without contributing an artifact, at a reduced entry fee, with clear privacy terms.</p>
-      <p><strong>Artefact registration form</strong> &mdash; for participants contributing an object, requiring an image and short description so the museum can assess relevance and fit before the exhibition.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">05</span>
+          <h2>Prototype overview</h2>
+        </div>
+        <p>The "Neighborhood Stories" prototype combines a physical invitation and a digital platform to engage the community effectively.</p>
+        <p><strong>Physical invitation</strong> &mdash; a postcard design that's easy to distribute and creates a personal connection, with a QR code directing recipients to a dedicated landing page.</p>
+        <p><strong>Digital landing page</strong> &mdash; designed for two distinct audiences with clear calls to action: visitors who wish to contribute an artifact can access a registration form, while those who simply want to attend can register separately.</p>
+        <p><strong>Registration forms</strong> &mdash; a visitor form for attendees at a reduced entry fee, and an artefact form requiring an image and short description so the museum can assess fit before the exhibition. Both include clear privacy terms.</p>
+      </section>
+    </div>
   </article>
+
+  <nav class="next-project" aria-label="Next project">
+    <div class="wrap">
+      <a class="next-project-link" href="erasmus-mc.html">
+        <span class="eyebrow">Next project</span>
+        <h3>Erasmus MC <span class="btn-arrow">&rarr;</span></h3>
+      </a>
+    </div>
+  </nav>
 </main>
 
-<footer class="site-footer wrap">
-  <p>&copy; <span id="year"></span> Hubert Figaroa.</p>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+    <a href="#" class="back-to-top link-underline">Back to top &uarr;</a>
+  </div>
 </footer>
 
 <script src="../script.js"></script>

@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hubert Figaroa &mdash; Designer</title>
 <meta name="description" content="Portfolio of Hubert Figaroa, a designer based in Amsterdam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>
-  // Applied before paint so there's no flash of the wrong theme.
   var storedTheme = localStorage.getItem("theme");
   if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
 </script>
@@ -15,13 +17,13 @@
 <body>
 
 <header class="site-header">
-  <div class="wrap">
-    <span class="logo">HF</span>
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
+  <div class="wrap header-inner">
+    <a class="logo" href="#">HF</a>
+    <nav class="site-nav">
+      <a href="#work" class="link-underline">Work</a>
+      <a href="#about" class="link-underline">About</a>
+      <a href="#reviews" class="link-underline">Reviews</a>
+      <a href="#contact" class="link-underline">Contact</a>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -35,141 +37,190 @@
   <section class="hero wrap">
     <!-- Replace with <img src="avatar.jpg" alt="Hubert Figaroa" class="avatar"> once you have a photo -->
     <div class="avatar" aria-hidden="true">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
     </div>
+    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Available for work</p>
     <h1>Hubert Figaroa</h1>
-    <p class="tagline">Designer based in Amsterdam. Available for work.</p>
-    <div class="hero-links">
-      <a href="mailto:info@hubertfigaroa.com">Email</a>
+    <p class="tagline">Designer based in Amsterdam.</p>
+    <div class="hero-actions">
+      <a href="mailto:info@hubertfigaroa.com" class="btn btn-primary">Get in touch<span class="btn-arrow">&rarr;</span></a>
+      <a href="mailto:info@hubertfigaroa.com" class="hero-email link-underline">info@hubertfigaroa.com</a>
     </div>
   </section>
 
   <section id="about" class="about wrap">
-    <h2>About</h2>
-    <p>
-      I'm studying Communication and Multimedia Design at the Rotterdam
-      University of Applied Sciences. Since childhood I've been fascinated by
-      how things work &mdash; taking apart toys, then more complex devices &mdash; and
-      that curiosity grew into a passion for design and technology. I love
-      capturing images and creating designs to tell stories, whether that's
-      product photography, portrait photography, or UX/service design work.
-    </p>
-    <p>
-      I've worked on projects with IceMobile, PostNL, Stichting DOCK, Picnic,
-      Clubleaf, and Wereldmuseum Amsterdam.
-    </p>
-  </section>
-
-  <section id="work" class="projects wrap">
-    <h2>Projects</h2>
-    <div class="project-grid">
-
-      <a class="project-card" href="projects/erasmus-mc.html">
-        <img src="images/erasmus-mc.png" alt="Erasmus MC &mdash; Druppie fluid balance concept" class="project-thumb" style="display:block;width:calc(100% + 40px);margin:-20px -20px 16px;aspect-ratio:16/10;object-fit:cover">
-        <h3>Erasmus MC</h3>
-        <p>UX Design &mdash; Druppie, a personification/mascot that helps cardiology patients manage and track their fluid balance.</p>
-        <span class="project-cta">View case study &rarr;</span>
-      </a>
-
-      <a class="project-card" href="projects/icemobile.html">
-        <img src="images/icemobile.png" alt="Clubleaf x IceMobile sustainable shopping concept" class="project-thumb" style="display:block;width:calc(100% + 40px);margin:-20px -20px 16px;aspect-ratio:16/10;object-fit:cover">
-        <h3>Clubleaf &times; IceMobile</h3>
-        <p>UX Design &mdash; Giving Picnic customers an easy, unpressured way to make more sustainable grocery choices.</p>
-        <span class="project-cta">View case study &rarr;</span>
-      </a>
-
-      <a class="project-card" href="projects/wereldmuseum.html">
-        <img src="images/wereldmuseum.jpg" alt="Wereldmuseum Amsterdam Neighborhood Stories concept" class="project-thumb" style="display:block;width:calc(100% + 40px);margin:-20px -20px 16px;aspect-ratio:16/10;object-fit:cover">
-        <h3>Wereldmuseum Amsterdam</h3>
-        <p>Service Design &mdash; "Neighborhood Stories," a concept inviting local residents to share their personal stories and cultural heritage.</p>
-        <span class="project-cta">View case study &rarr;</span>
-      </a>
-
+    <div class="section-head">
+      <span class="section-eyebrow">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-body">
+      <p>
+        I'm studying Communication and Multimedia Design at the Rotterdam
+        University of Applied Sciences. Since childhood I've been fascinated by
+        how things work &mdash; taking apart toys, then more complex devices &mdash; and
+        that curiosity grew into a passion for design and technology. I love
+        capturing images and creating designs to tell stories, whether that's
+        product photography, portrait photography, or UX/service design work.
+      </p>
+      <p>
+        I've worked on projects with IceMobile, PostNL, Stichting DOCK, Picnic,
+        Clubleaf, and Wereldmuseum Amsterdam.
+      </p>
     </div>
   </section>
 
-  <section id="reviews" class="testimonials wrap">
-    <h2>Reviews</h2>
-    <div class="testimonial-list">
-
-      <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Robin Sinke">
-        <div class="testimonial-header">
-          <div class="testimonial-avatar" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-          </div>
-          <div class="testimonial-meta">
-            <p class="testimonial-name">Robin Sinke</p>
-            <p class="testimonial-role">Lecturer at Hogeschool van Rotterdam</p>
-          </div>
-        </div>
-        <blockquote class="testimonial-quote">
-          <p>"I know Hubert Figaroa as a student at CMD, and I have experienced him as someone who really stands out. He is critical, asks sharp questions, and dares to tackle difficult issues. In addition, he has a professional attitude and communicates clearly and purposefully. Hubert has an impressive talent for photography and visual design. He knows how to present concepts visually with a contemporary, creative vision. With his critical eye and creative approach, Hubert is a valuable addition to any team or project."</p>
-        </blockquote>
-        <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">02</span>
+        <h2>Selected work</h2>
       </div>
+      <div class="work-list">
 
-      <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Rik de Vette">
-        <div class="testimonial-header">
-          <div class="testimonial-avatar" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <a class="work-item" href="projects/erasmus-mc.html">
+          <span class="work-index">01</span>
+          <div class="work-info">
+            <h3>Erasmus MC</h3>
+            <p class="work-tag">UX Design</p>
+            <p class="work-desc">Druppie, a personification/mascot that helps cardiology patients manage and track their fluid balance.</p>
           </div>
-          <div class="testimonial-meta">
-            <p class="testimonial-name">Rik de Vette</p>
-            <p class="testimonial-role">Innovation lead, PostNL</p>
+          <div class="work-thumb">
+            <img src="images/erasmus-mc.png" alt="Erasmus MC &mdash; Druppie fluid balance concept" loading="lazy">
           </div>
-        </div>
-        <blockquote class="testimonial-quote">
-          <p>"Hubert joined our team at the PostNL Innovation Studio as an intern from CMD. He brought an excellent mix of skills, curiosity, and a strong research mindset, which consistently added value to our projects. Beyond his technical abilities, Hubert was a great colleague&mdash;easy to work with, team-oriented, and always bringing positive energy to the group. He fit seamlessly into the team. I highly recommend him to any organization."</p>
-        </blockquote>
-        <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
+          <span class="work-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <a class="work-item" href="projects/icemobile.html">
+          <span class="work-index">02</span>
+          <div class="work-info">
+            <h3>Clubleaf &times; IceMobile</h3>
+            <p class="work-tag">UX Design</p>
+            <p class="work-desc">Giving Picnic customers an easy, unpressured way to make more sustainable grocery choices.</p>
+          </div>
+          <div class="work-thumb">
+            <img src="images/icemobile.png" alt="Clubleaf x IceMobile sustainable shopping concept" loading="lazy">
+          </div>
+          <span class="work-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
+        <a class="work-item" href="projects/wereldmuseum.html">
+          <span class="work-index">03</span>
+          <div class="work-info">
+            <h3>Wereldmuseum Amsterdam</h3>
+            <p class="work-tag">Service Design</p>
+            <p class="work-desc">"Neighborhood Stories," a concept inviting local residents to share their personal stories and cultural heritage.</p>
+          </div>
+          <div class="work-thumb">
+            <img src="images/wereldmuseum.jpg" alt="Wereldmuseum Amsterdam Neighborhood Stories concept" loading="lazy">
+          </div>
+          <span class="work-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+
       </div>
-
-      <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Rianne Eping">
-        <div class="testimonial-header">
-          <div class="testimonial-avatar" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-          </div>
-          <div class="testimonial-meta">
-            <p class="testimonial-name">Rianne Eping</p>
-            <p class="testimonial-role">UX Design, PostNL</p>
-          </div>
-        </div>
-        <blockquote class="testimonial-quote">
-          <p>"Samen met Hubert heb ik aan de online validatieflow (iDIN) van PostNL gewerkt. Hij is een fijn en gezellig persoon om mee samen te werken en komt met verfrissende idee&euml;n."</p>
-        </blockquote>
-        <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
-      </div>
-
     </div>
   </section>
 
-  <section id="contact" class="contact wrap">
-    <h2>Contact</h2>
-    <p>
-      Looking to start a new project or just want to say hi? Send a message
-      below and I'll do my best to reply within 24 hrs &mdash; or email me
-      directly at <a href="mailto:info@hubertfigaroa.com">info@hubertfigaroa.com</a>.
-    </p>
+  <section id="reviews" class="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">03</span>
+        <h2>What people say</h2>
+      </div>
+      <div class="testimonial-list">
 
-    <form id="contact-form" class="contact-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+        <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Robin Sinke">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            </div>
+            <div class="testimonial-meta">
+              <p class="testimonial-name">Robin Sinke</p>
+              <p class="testimonial-role">Lecturer at Hogeschool van Rotterdam</p>
+            </div>
+          </div>
+          <blockquote class="testimonial-quote">
+            <p>"I know Hubert Figaroa as a student at CMD, and I have experienced him as someone who really stands out. He is critical, asks sharp questions, and dares to tackle difficult issues. In addition, he has a professional attitude and communicates clearly and purposefully. Hubert has an impressive talent for photography and visual design. He knows how to present concepts visually with a contemporary, creative vision. With his critical eye and creative approach, Hubert is a valuable addition to any team or project."</p>
+          </blockquote>
+          <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
+        </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+        <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Rik de Vette">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            </div>
+            <div class="testimonial-meta">
+              <p class="testimonial-name">Rik de Vette</p>
+              <p class="testimonial-role">Innovation lead, PostNL</p>
+            </div>
+          </div>
+          <blockquote class="testimonial-quote">
+            <p>"Hubert joined our team at the PostNL Innovation Studio as an intern from CMD. He brought an excellent mix of skills, curiosity, and a strong research mindset, which consistently added value to our projects. Beyond his technical abilities, Hubert was a great colleague&mdash;easy to work with, team-oriented, and always bringing positive energy to the group. He fit seamlessly into the team. I highly recommend him to any organization."</p>
+          </blockquote>
+          <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
+        </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="testimonial" tabindex="0" role="button" aria-expanded="false" aria-label="Expand full review from Rianne Eping">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            </div>
+            <div class="testimonial-meta">
+              <p class="testimonial-name">Rianne Eping</p>
+              <p class="testimonial-role">UX Design, PostNL</p>
+            </div>
+          </div>
+          <blockquote class="testimonial-quote">
+            <p>"Samen met Hubert heb ik aan de online validatieflow (iDIN) van PostNL gewerkt. Hij is een fijn en gezellig persoon om mee samen te werken en komt met verfrissende idee&euml;n."</p>
+          </blockquote>
+          <span class="testimonial-toggle"><span class="show-more">Read more</span><span class="show-less">Read less</span></span>
+        </div>
 
-      <button type="submit">Send</button>
-      <p id="form-status" class="form-status" role="status"></p>
-    </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">04</span>
+        <h2>Get in touch</h2>
+      </div>
+      <p class="contact-lead">
+        Looking to start a new project or just want to say hi? Send a message
+        below and I'll do my best to reply within 24 hrs &mdash; or email me
+        directly at <a href="mailto:info@hubertfigaroa.com" class="link-underline">info@hubertfigaroa.com</a>.
+      </p>
+
+      <form id="contact-form" class="contact-form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input class="field-input" type="text" id="name" name="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="field-input" type="email" id="email" name="email" required>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea class="field-input" id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send message<span class="btn-arrow">&rarr;</span></button>
+        <p id="form-status" class="form-status" role="status"></p>
+      </form>
+    </div>
   </section>
 
 </main>
 
-<footer class="site-footer wrap">
-  <p>&copy; <span id="year"></span> Hubert Figaroa.</p>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+    <a href="#" class="back-to-top link-underline">Back to top &uarr;</a>
+  </div>
 </footer>
 
 <script src="script.js"></script>

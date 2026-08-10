@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Erasmus MC &mdash; Hubert Figaroa</title>
 <meta name="description" content="UX Design case study: Druppie, a mascot that helps Erasmus MC patients manage their fluid balance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <script>
   var storedTheme = localStorage.getItem("theme");
@@ -14,13 +17,13 @@
 <body>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap header-inner">
     <a class="logo" href="../index.html">HF</a>
-    <nav>
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#reviews">Reviews</a>
-      <a href="../index.html#contact">Contact</a>
+    <nav class="site-nav">
+      <a href="../index.html#work" class="link-underline">Work</a>
+      <a href="../index.html#about" class="link-underline">About</a>
+      <a href="../index.html#reviews" class="link-underline">Reviews</a>
+      <a href="../index.html#contact" class="link-underline">Contact</a>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -30,49 +33,85 @@
 </header>
 
 <main>
-  <article class="case-study wrap">
-    <a class="back-link" href="../index.html#work">&larr; Back to projects</a>
+  <article class="case-study">
+    <div class="wrap">
+      <a class="back-link link-underline" href="../index.html#work">&larr; Back to work</a>
+      <p class="case-eyebrow">UX Design</p>
+      <h1>Erasmus MC</h1>
+      <p class="case-tagline">A personification/mascot that helps patients manage their fluid balance.</p>
+      <dl class="case-meta-list">
+        <div><dt>Role</dt><dd>Research / Designer</dd></div>
+        <div><dt>For</dt><dd>Erasmus MC, Cardiology</dd></div>
+      </dl>
+    </div>
 
-    <img src="../images/erasmus-mc.png" alt="Erasmus MC &mdash; Druppie fluid balance concept" class="case-hero-image">
+    <div class="case-hero-wrap">
+      <img src="../images/erasmus-mc.png" alt="Erasmus MC &mdash; Druppie fluid balance concept" class="case-hero-image">
+    </div>
 
-    <h1>Erasmus MC</h1>
-    <p class="case-meta">UX Design &mdash; Research / Designer</p>
-    <p class="case-tagline">A personification/mascot that helps patients manage their fluid balance.</p>
+    <div class="wrap case-body">
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">01</span>
+          <h2>Design challenge</h2>
+        </div>
+        <blockquote class="pull-quote">How can we simplify and potentially automate the process of fluid balance registration for patients and nurses in the Cardiology department?</blockquote>
+      </section>
 
-    <section class="case-section">
-      <h2>Design challenge</h2>
-      <p>"How can we simplify and potentially automate the process of fluid balance registration for patients and nurses in the Cardiology department?"</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">02</span>
+          <h2>Scenario</h2>
+        </div>
+        <p>Patients in the Cardiology department of Erasmus MC are asked to track their fluid intake to monitor their heart condition. However, they face issues such as losing the registration paper, not having a pen available, or forgetting to record their intake. These challenges result in inaccuracies in monitoring their health condition.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Scenario</h2>
-      <p>Patients in the Cardiology department of Erasmus MC are asked to track their fluid intake to monitor their heart condition. However, they face issues such as losing the registration paper, not having a pen available, or forgetting to record their intake. These challenges result in inaccuracies in monitoring their health condition.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">03</span>
+          <h2>Research</h2>
+        </div>
+        <ul>
+          <li><strong>Patients</strong> &mdash; to understand their challenges, preferences, and motivations.</li>
+          <li><strong>Specialists</strong> &mdash; to identify pain points in the current process and their expectations for an improved system.</li>
+          <li><strong>Field observations.</strong></li>
+        </ul>
+      </section>
 
-    <section class="case-section">
-      <h2>Research</h2>
-      <ul>
-        <li>Patients &mdash; to understand their challenges, preferences, and motivations.</li>
-        <li>Specialists &mdash; to identify pain points in the current process and their expectations for an improved system.</li>
-        <li>Field observations.</li>
-      </ul>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">04</span>
+          <h2>Desired situation</h2>
+        </div>
+        <p>With the personification of Druppie, we can explain to patients why tracking their fluid balance is important while also motivating them to take ownership of the process. This, in turn, fosters trust in the monitoring system.</p>
+        <p>By using education, positive affirmations, and nudges, we can promote healthy behavioral changes in patients.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Desired situation</h2>
-      <p>With the personification of Druppie, we can explain to patients why tracking their fluid balance is important while also motivating them to take ownership of the process. This, in turn, fosters trust in the monitoring system.</p>
-      <p>By using education, positive affirmations, and nudges, we can promote healthy behavioral changes in patients.</p>
-    </section>
-
-    <section class="case-section">
-      <h2>Final design</h2>
-      <p><strong>Progress overview</strong> &mdash; a visual graph showing daily intake with motivational messages from Druppie.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">05</span>
+          <h2>Final design</h2>
+        </div>
+        <p><strong>Progress overview</strong> &mdash; a visual graph showing daily intake with motivational messages from Druppie.</p>
+      </section>
+    </div>
   </article>
+
+  <nav class="next-project" aria-label="Next project">
+    <div class="wrap">
+      <a class="next-project-link" href="icemobile.html">
+        <span class="eyebrow">Next project</span>
+        <h3>Clubleaf &times; IceMobile <span class="btn-arrow">&rarr;</span></h3>
+      </a>
+    </div>
+  </nav>
 </main>
 
-<footer class="site-footer wrap">
-  <p>&copy; <span id="year"></span> Hubert Figaroa.</p>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+    <a href="#" class="back-to-top link-underline">Back to top &uarr;</a>
+  </div>
 </footer>
 
 <script src="../script.js"></script>

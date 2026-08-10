@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clubleaf x IceMobile &mdash; Hubert Figaroa</title>
 <meta name="description" content="UX Design case study: helping Picnic customers make more sustainable grocery choices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <script>
   var storedTheme = localStorage.getItem("theme");
@@ -14,13 +17,13 @@
 <body>
 
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap header-inner">
     <a class="logo" href="../index.html">HF</a>
-    <nav>
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#reviews">Reviews</a>
-      <a href="../index.html#contact">Contact</a>
+    <nav class="site-nav">
+      <a href="../index.html#work" class="link-underline">Work</a>
+      <a href="../index.html#about" class="link-underline">About</a>
+      <a href="../index.html#reviews" class="link-underline">Reviews</a>
+      <a href="../index.html#contact" class="link-underline">Contact</a>
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
@@ -30,58 +33,94 @@
 </header>
 
 <main>
-  <article class="case-study wrap">
-    <a class="back-link" href="../index.html#work">&larr; Back to projects</a>
+  <article class="case-study">
+    <div class="wrap">
+      <a class="back-link link-underline" href="../index.html#work">&larr; Back to work</a>
+      <p class="case-eyebrow">UX Design</p>
+      <h1>Clubleaf &times; IceMobile</h1>
+      <p class="case-tagline">Providing Picnic customers with the option to make more sustainable choices.</p>
+      <dl class="case-meta-list">
+        <div><dt>Role</dt><dd>Researcher / Designer</dd></div>
+        <div><dt>For</dt><dd>Clubleaf &times; IceMobile, Picnic</dd></div>
+      </dl>
+    </div>
 
-    <img src="../images/icemobile.png" alt="Clubleaf x IceMobile sustainable shopping concept" class="case-hero-image">
+    <div class="case-hero-wrap">
+      <img src="../images/icemobile.png" alt="Clubleaf x IceMobile sustainable shopping concept" class="case-hero-image">
+    </div>
 
-    <h1>Clubleaf &times; IceMobile</h1>
-    <p class="case-meta">UX Design &mdash; Researcher / Designer</p>
-    <p class="case-tagline">Providing Picnic customers with the option to make more sustainable choices.</p>
+    <div class="wrap case-body">
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">01</span>
+          <h2>Scenario</h2>
+        </div>
+        <blockquote class="pull-quote">We aim to empower customers to make sustainable choices without feeling pressured.</blockquote>
+        <p>Using tools like infographics, we inform them about sustainability, reduce confusion, and alleviate greenwashing fears by providing transparency about production processes and certifications.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Scenario</h2>
-      <p>We aim to empower customers to make sustainable choices without feeling pressured. Using tools like infographics, we inform them about sustainability, reduce confusion, and alleviate greenwashing fears by providing transparency about production processes and certifications.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">02</span>
+          <h2>Problem analysis</h2>
+        </div>
+        <p>Picnic's assortment features numerous non-sustainable products, with limited visibility or promotion of sustainable options. Additionally, 43% of consumers do not actively consider product sustainability, highlighting a significant awareness gap.</p>
+        <p><strong>Research methods:</strong> interviews, observations, trend analysis.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Problem analysis</h2>
-      <p>Picnic's assortment features numerous non-sustainable products, with limited visibility or promotion of sustainable options. Additionally, 43% of consumers do not actively consider product sustainability, highlighting a significant awareness gap.</p>
-      <p><strong>Research methods:</strong> interviews, observations, trend analysis.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">03</span>
+          <h2>Findings</h2>
+        </div>
+        <ul>
+          <li>Club Leaf focuses on several of the United Nations' 17 Sustainable Development Goals in their projects.</li>
+          <li>Companies are taking significant steps to reduce their carbon footprint but fail to engage consumers in these efforts.</li>
+        </ul>
+      </section>
 
-    <section class="case-section">
-      <h2>Findings</h2>
-      <ul>
-        <li>Club Leaf focuses on several of the United Nations' 17 Sustainable Development Goals in their projects.</li>
-        <li>Companies are taking significant steps to reduce their carbon footprint but fail to engage consumers in these efforts.</li>
-      </ul>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">04</span>
+          <h2>Proposition</h2>
+        </div>
+        <p>To promote sustainability in grocery shopping, we developed three concepts. <strong>"Know Your Groceries"</strong> educates consumers about product production through digital tools like videos and illustrations. <strong>"Choose Your Emissions"</strong> encourages selecting sustainable alternatives with subtle guidance. <strong>"Motivation through Extra Information"</strong> uses visualizations to show the climate impact of products, inspiring informed choices.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Proposition</h2>
-      <p>To promote sustainability in grocery shopping, we developed three concepts. <strong>"Know Your Groceries"</strong> educates consumers about product production through digital tools like videos and illustrations. <strong>"Choose Your Emissions"</strong> encourages selecting sustainable alternatives with subtle guidance. <strong>"Motivation through Extra Information"</strong> uses visualizations to show the climate impact of products, inspiring informed choices. These concepts work together to make sustainable shopping easier and more engaging.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">05</span>
+          <h2>Sustainable Saving Card</h2>
+        </div>
+        <p>The card rewards consumers with stickers for adding sustainable products to their cart. Once the card is full, customers can redeem it for free sustainable products, offsetting higher prices. A clear icon highlights sustainable options, discouraging corporate greenwashing.</p>
+      </section>
 
-    <section class="case-section">
-      <h2>Sustainable Saving Card</h2>
-      <p>The card rewards consumers with stickers for adding sustainable products to their cart. Once the card is full, customers can redeem it for free sustainable products, offsetting higher prices. A clear icon highlights sustainable options, addressing the insight that the audience values sustainability while shopping and discouraging corporate greenwashing.</p>
-    </section>
-
-    <section class="case-section">
-      <h2>A pop-up</h2>
-      <p>A pop-up suggests sustainable alternatives to customers who haven't chosen any yet, encouraging greener choices. Infographics and summary texts about production processes build trust in sustainability and help combat greenwashing.</p>
-    </section>
-
-    <section class="case-section">
-      <h2>CO2 and plastic meter</h2>
-      <p>Users can track the amount of CO2 or plastic they've saved, with comparisons to everyday items like T-shirts, straws, or bottles. This visualizes the impact of their choices, motivating consumers to select sustainable options more frequently. If a customer switches back to a non-sustainable product, the free item and sticker are removed.</p>
-    </section>
+      <section class="case-section">
+        <div class="section-head">
+          <span class="section-eyebrow">06</span>
+          <h2>Pop-up & CO2 meter</h2>
+        </div>
+        <p>A pop-up suggests sustainable alternatives to customers who haven't chosen any yet, with infographics that build trust and help combat greenwashing.</p>
+        <p>Users can also track the amount of CO2 or plastic they've saved, with comparisons to everyday items like T-shirts, straws, or bottles &mdash; visualizing their impact and motivating more sustainable choices over time.</p>
+      </section>
+    </div>
   </article>
+
+  <nav class="next-project" aria-label="Next project">
+    <div class="wrap">
+      <a class="next-project-link" href="wereldmuseum.html">
+        <span class="eyebrow">Next project</span>
+        <h3>Wereldmuseum Amsterdam <span class="btn-arrow">&rarr;</span></h3>
+      </a>
+    </div>
+  </nav>
 </main>
 
-<footer class="site-footer wrap">
-  <p>&copy; <span id="year"></span> Hubert Figaroa.</p>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+    <a href="#" class="back-to-top link-underline">Back to top &uarr;</a>
+  </div>
 </footer>
 
 <script src="../script.js"></script>
