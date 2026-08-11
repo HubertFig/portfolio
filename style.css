@@ -9,9 +9,9 @@
   --muted: #71717a;
   --border: #e5e5e5;
   --border-strong: #0a0a0a;
-  --accent: #f97316;
-  --accent-light: #fb923c;
-  --accent-dark: #ea580c;
+  --accent: #c2410c;
+  --accent-light: #f97316;
+  --accent-dark: #9a3412;
 
   /* Fixed (theme-independent) ink/paper: used for bands that must stay a
      dark close, like the contact/footer CTA, regardless of light/dark mode. */
@@ -74,7 +74,7 @@
   --muted: #71717a;
   --border: #e5e5e5;
   --border-strong: #0a0a0a;
-  --accent: #f97316;
+  --accent: #c2410c;
 }
 
 :root[data-theme="dark"] {
@@ -1072,6 +1072,38 @@ textarea.field-input {
   max-width: 56ch;
 }
 
+/* ============================================
+   Case highlights (scannable at-a-glance strip)
+   ============================================ */
+.case-highlights {
+  display: flex;
+  gap: var(--space-7);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.case-highlights-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.case-highlights-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.case-highlights-label {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  max-width: 22ch;
+}
+
 .case-hero-wrap {
   max-width: var(--xwide-width);
   margin: var(--space-8) auto;
@@ -1278,8 +1310,8 @@ textarea.field-input {
 
   .theme-toggle,
   .nav-toggle {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .theme-toggle .icon,
@@ -1311,6 +1343,10 @@ textarea.field-input {
   }
 
   .case-meta-list {
+    gap: var(--space-5);
+  }
+
+  .case-highlights {
     gap: var(--space-5);
   }
 

@@ -89,40 +89,28 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
   });
 }
 
-// Contact form: sends to Formspree. Sign up at https://formspree.io,
-// create a form, and replace YOUR_FORM_ID below with the ID it gives you.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+// Contact form: opens the visitor's email client with the message
+// pre-filled, addressed to CONTACT_EMAIL. No backend required, so it
+// works the moment the page loads instead of depending on a third-party
+// form service being configured.
+const CONTACT_EMAIL = "info@hubertfigaroa.com";
 
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
 
 if (form) {
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const button = form.querySelector("button");
-    button.disabled = true;
-    status.textContent = "Sending...";
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    const subject = `Portfolio message from ${name}`;
+    const body = `${message}\n\n\u2014\n${name}\n${email}`;
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    status.textContent = "Opening your email client\u2026";
     status.className = "form-status";
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
-      });
-
-      if (response.ok) {
-        status.textContent = "Thanks \u2014 your message has been sent.";
-        status.className = "form-status success";
-        form.reset();
-      } else {
-        throw new Error("Request failed");
-      }
-    } catch (err) {
-      status.textContent = "Something went wrong. Please email me directly instead.";
-      status.className = "form-status error";
-    } finally {
-      button.disabled = false;
-    }
+    window.location.href = mailto;
   });
 }
