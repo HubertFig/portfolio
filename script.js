@@ -62,6 +62,33 @@ document.querySelectorAll(".testimonial").forEach((card) => {
   });
 });
 
+// Scroll reveal: fades/lifts [data-reveal] blocks into place as they enter
+// the viewport, in the order they're actually encountered while scrolling.
+// Skipped entirely for prefers-reduced-motion, and progressively enhanced --
+// the .reveal-ready gate is only added here, so content stays fully visible
+// by default if this script fails or IntersectionObserver isn't supported.
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  document.body.classList.add("reveal-ready");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  document.querySelectorAll("[data-reveal]").forEach((el) => {
+    revealObserver.observe(el);
+  });
+}
+
 // Contact form: sends to Formspree. Sign up at https://formspree.io,
 // create a form, and replace YOUR_FORM_ID below with the ID it gives you.
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";

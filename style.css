@@ -144,6 +144,21 @@ section:first-of-type {
   top: var(--space-4);
 }
 
+/* Scroll reveal: gently lifts key content blocks into place as they enter
+   the viewport. The .reveal-ready gate means this only ever activates once
+   JS confirms it's watching -- if JS never runs, [data-reveal] elements
+   are just plain, fully visible content. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms var(--ease), transform 500ms var(--ease);
+}
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 /* ============================================
    Section head component (numbered eyebrow)
    ============================================ */
@@ -216,7 +231,12 @@ section:first-of-type {
   border: 1px solid transparent;
   transition: background-color var(--dur-fast) var(--ease),
     border-color var(--dur-fast) var(--ease),
-    color var(--dur-fast) var(--ease);
+    color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .btn-arrow {
@@ -306,6 +326,7 @@ section:first-of-type {
 
 .nav-toggle {
   display: none;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: 34px;
@@ -316,19 +337,41 @@ section:first-of-type {
   border-radius: 50%;
   color: var(--muted);
   cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.nav-toggle:active {
+  transform: scale(0.92);
 }
 
 .nav-toggle .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 16px;
   height: 16px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 
-.nav-toggle .icon-close { display: none; }
-.nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
-.nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+.nav-toggle .icon-close {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .icon-menu {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .icon-close {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
 
 .theme-toggle {
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: 34px;
@@ -339,7 +382,8 @@ section:first-of-type {
   border-radius: 50%;
   color: var(--muted);
   cursor: pointer;
-  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
 }
 
 .theme-toggle:hover {
@@ -347,23 +391,38 @@ section:first-of-type {
   border-color: var(--accent);
 }
 
+.theme-toggle:active {
+  transform: scale(0.92);
+}
+
 .theme-toggle .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 15px;
   height: 15px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 
-.theme-toggle .icon-sun { display: none; }
-.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.theme-toggle .icon-moon {
+  opacity: 1;
+}
 
 @media (prefers-color-scheme: dark) {
-  .theme-toggle .icon-sun { display: block; }
-  .theme-toggle .icon-moon { display: none; }
+  .theme-toggle .icon-sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+  .theme-toggle .icon-moon { opacity: 0; transform: translate(-50%, -50%) rotate(45deg); }
 }
 
-:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
-:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
-:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+:root[data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: translate(-50%, -50%) rotate(45deg); }
+:root[data-theme="light"] .theme-toggle .icon-sun { opacity: 0; transform: translate(-50%, -50%) rotate(-45deg); }
+:root[data-theme="light"] .theme-toggle .icon-moon { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
 
 /* ============================================
    Hero
@@ -541,6 +600,11 @@ img.avatar {
   border-top: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.work-item:active {
+  background-color: var(--bg-alt);
 }
 
 .work-list .work-item:first-child {
@@ -595,7 +659,8 @@ img.avatar {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--dur) var(--ease);
+  filter: saturate(0.85) brightness(0.98);
+  transition: transform var(--dur) var(--ease), filter var(--dur) var(--ease);
 }
 
 .work-arrow {
@@ -613,6 +678,7 @@ img.avatar {
 .work-item:hover .work-thumb img,
 .work-item:focus-visible .work-thumb img {
   transform: scale(1.04);
+  filter: saturate(1) brightness(1);
 }
 
 .work-item:hover .work-arrow,
@@ -636,10 +702,15 @@ img.avatar {
 .testimonial {
   padding: var(--space-6) 0;
   border-top: 1px solid var(--border);
+  transition: background-color var(--dur-fast) var(--ease);
 }
 
 .testimonial.has-overflow {
   cursor: pointer;
+}
+
+.testimonial.has-overflow:active {
+  background-color: var(--bg-alt);
 }
 
 .testimonial-list .testimonial:first-child {
@@ -1211,5 +1282,22 @@ textarea.field-input {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ============================================
+   View transitions (native cross-page fade)
+   ============================================ */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 200ms;
+    animation-timing-function: var(--ease);
   }
 }
