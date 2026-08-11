@@ -1064,6 +1064,24 @@ textarea.field-input {
   border: 1px solid var(--border);
 }
 
+.case-inline-figure {
+  margin: var(--space-5) 0;
+  max-width: 62ch;
+}
+
+.case-inline-image {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.case-inline-figure figcaption {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
 .case-body {
   padding-bottom: var(--space-8);
 }

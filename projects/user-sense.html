@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Sense &mdash; Hubert Figaroa</title>
+<meta name="description" content="Graduation project: redesigning the sign-up and testing experience for User Sense's UX research platform.">
+<meta name="view-transition" content="same-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script>
+  var storedTheme = localStorage.getItem("theme");
+  if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
+</script>
+</head>
+<body id="top">
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="../index.html">HF</a>
+    <div class="header-controls">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html#work" class="link-underline">Work</a>
+        <a href="../index.html#about" class="link-underline">About</a>
+        <a href="../index.html#reviews" class="link-underline">Reviews</a>
+        <a href="../index.html#contact" class="link-underline">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" tabindex="-1">
+  <article class="case-study">
+    <div class="wrap">
+      <a class="back-link link-underline" href="../index.html#work"><span aria-hidden="true">&larr; </span>Back to work</a>
+      <p class="case-eyebrow">UX Design</p>
+      <h1>User Sense</h1>
+      <p class="case-tagline">Redesigning the sign-up and testing experience for a UX research platform's tester community.</p>
+      <dl class="case-meta-list">
+        <div><dt>Role</dt><dd>UX Researcher / Designer</dd></div>
+        <div><dt>For</dt><dd>User Sense B.V.</dd></div>
+      </dl>
+
+      <div class="contribution">
+        <p class="contribution-title">My contribution &mdash; solo graduation project</p>
+        <dl class="contribution-list">
+          <div>
+            <dt>Did</dt>
+            <dd>Ran the full process solo: survey design and analysis, support-ticket research, stakeholder mapping, personas, concept design, prototyping, and usability testing.</dd>
+          </div>
+          <div>
+            <dt>Already decided</dt>
+            <dd>The company and the challenge area &mdash; friction in the tester sign-up and testing flow &mdash; were set by the internship brief, with regular feedback from my company mentor.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="case-hero-wrap" data-reveal>
+      <img src="../images/user-sense.jpg" alt="The redesigned User Sense tester dashboard, showing onboarding progress, available studies and screeners, and account balance at a glance." class="case-hero-image">
+    </div>
+
+    <div class="wrap case-body">
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">01</span>
+          <h2>Design challenge</h2>
+        </div>
+        <blockquote class="pull-quote">How might we design the sign-up and testing process for testers so it's efficient and easy to use, while giving them fast access to relevant tests and the information they need?</blockquote>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">02</span>
+          <h2>Context</h2>
+        </div>
+        <p>User Sense is a Dutch UX research platform, founded in 2020, that helps companies improve their digital products through user testing. Its research runs on a self-built panel of more than 75,000 participants &mdash; people who sign up as "testers" to take part in studies.</p>
+        <p>My assignment, set as my graduation project, was to fix friction on the tester-facing side of that platform: signing up, finding and joining studies, and using the testing environment itself.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">03</span>
+          <h2>Research</h2>
+        </div>
+        <p>I surveyed User Sense's own tester pool and reviewed support tickets to find out where the friction was actually concentrated, rather than guessing.</p>
+        <ul>
+          <li><strong>46% of testers</strong> had hit a technical problem on the platform, most often around logging in.</li>
+          <li><strong>Signing up</strong> for a specific test was the single most common complaint &mdash; ahead of participating in the test itself.</li>
+          <li>Baseline satisfaction was still a respectable <strong>7.2/10</strong>, and most testers said they'd recommend User Sense to others. The platform wasn't broken &mdash; but the rough edges were costing it.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">04</span>
+          <h2>Define</h2>
+        </div>
+        <p>I turned the research into three personas, each representing a different way people use the platform:</p>
+        <ul>
+          <li>A <strong>freelance marketer</strong> who gets stuck on unclear sign-up steps and never receives confirmation after registering.</li>
+          <li>A <strong>student</strong> who rarely sees tests that fit his profile, and doesn't understand why he's rejected when he does apply.</li>
+          <li>A <strong>working parent</strong> who avoids tests that require installing extra software, and wants clearer communication when she isn't selected.</li>
+        </ul>
+        <p>Different life stages, same underlying problem: the platform wasn't telling people enough, early enough.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">05</span>
+          <h2>Design guidelines</h2>
+        </div>
+        <p>I turned that into five principles before designing anything:</p>
+        <ul>
+          <li>Clearer navigation and structure within the test environment.</li>
+          <li>Clear, visual instructions on where and how to complete a test.</li>
+          <li>Transparency around participation odds, through status updates instead of silence.</li>
+          <li>A stronger visual hierarchy for a more intuitive tester dashboard.</li>
+          <li>Onboarding that explains the process up front, to cut down on confusion later.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">06</span>
+          <h2>Final design</h2>
+        </div>
+        <p>Passwordless sign-in replaced the password-based login entirely &mdash; testers get a one-time code by email instead, removing the single most common technical complaint.</p>
+        <figure class="case-inline-figure">
+          <img src="../images/user-sense-login.jpg" alt="Split-screen login: a study invite on the left showing session length, incentive, and method, and a one-time password entry field on the right." class="case-inline-image">
+        </figure>
+        <p>The screener overview shows a profile-match percentage on every study, with clear "New," "Pending review," and "History" tabs &mdash; so testers always know where they stand instead of hearing nothing back.</p>
+        <figure class="case-inline-figure">
+          <img src="../images/user-sense-screener.jpg" alt="The redesigned screener list, showing profile-match percentage, incentive, and session details for each available study." class="case-inline-image">
+        </figure>
+        <p>The redesigned dashboard, shown at the top of this page, brings onboarding progress, available studies, and account balance together on one screen, instead of leaving testers to piece it together themselves.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">07</span>
+          <h2>Outcome</h2>
+        </div>
+        <p>The result was a redesigned tester environment &mdash; covering sign-up, the study dashboard, and the screener flow &mdash; validated through usability testing with real testers before handover to User Sense.</p>
+        <p>This case study reflects the design work from my graduation project; I don't have post-launch platform metrics to report here.</p>
+      </section>
+    </div>
+  </article>
+
+  <nav class="next-project" aria-label="Next project">
+    <div class="wrap">
+      <a class="next-project-link" data-reveal href="erasmus-mc.html">
+        <span class="eyebrow">Next project</span>
+        <h2>Erasmus MC <span class="btn-arrow" aria-hidden="true">&rarr;</span></h2>
+      </a>
+    </div>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+    <a href="#top" class="back-to-top link-underline">Back to top<span aria-hidden="true"> &uarr;</span></a>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
