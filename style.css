@@ -1119,10 +1119,14 @@ textarea.field-input {
 }
 
 .case-section ul {
-  margin: 0;
+  margin: 0 0 var(--space-3);
   padding-left: 20px;
   color: var(--muted);
   max-width: 62ch;
+}
+
+.case-section ul:last-child {
+  margin-bottom: 0;
 }
 
 .case-section li {
