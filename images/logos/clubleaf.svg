@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48">
+  <path d="M20 8c-8 4-12 12-9 22 7-1 14-6 17-14 2-6 1-11-8-8z" fill="#22c55e"/>
+  <path d="M20 8c-4 8-4 16 0 22" stroke="#16a34a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <text x="42" y="32" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="24" font-weight="700" fill="#71717a">Clubleaf</text>
+</svg>

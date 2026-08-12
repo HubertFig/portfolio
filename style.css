@@ -509,13 +509,6 @@ section:first-of-type {
   padding: var(--space-6) 0;
 }
 
-.worked-with-inner {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-5);
-  flex-wrap: wrap;
-}
-
 .worked-with-label {
   flex-shrink: 0;
   font-size: var(--text-xs);
@@ -523,13 +516,59 @@ section:first-of-type {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
-  margin: 0;
+  margin: 0 0 var(--space-5);
 }
 
-.worked-with-list {
-  color: var(--text);
-  font-size: var(--text-sm);
-  margin: 0;
+.logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black clamp(20px, 5vw, 60px),
+    black calc(100% - clamp(20px, 5vw, 60px)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black clamp(20px, 5vw, 60px),
+    black calc(100% - clamp(20px, 5vw, 60px)),
+    transparent 100%
+  );
+}
+
+.logo-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+
+.logo-marquee-group {
+  display: contents;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+.logo-marquee-item {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+  margin-right: var(--space-9);
+  opacity: 0.85;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+
+.logo-marquee-item:hover {
+  opacity: 1;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .featured-quote {
@@ -1344,9 +1383,9 @@ textarea.field-input {
     padding: var(--space-5) 0;
   }
 
-  .worked-with-inner {
-    flex-direction: column;
-    gap: var(--space-2);
+  .logo-marquee-item {
+    height: 22px;
+    margin-right: var(--space-7);
   }
 
   .about, .work, .reviews, .contact {
