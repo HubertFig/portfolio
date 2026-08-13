@@ -576,15 +576,68 @@ section:first-of-type {
 }
 
 .featured-quote .pull-quote {
-  font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem);
-  font-weight: 500;
+  display: block;
 }
 
-.featured-quote-attr {
-  margin: var(--space-3) 0 0;
-  padding-left: calc(var(--space-5) + 3px);
+.featured-quote-mark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 2.5rem + 3vw, 5.5rem);
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: -0.35em;
+}
+
+.featured-quote .pull-quote p {
+  margin: 0;
+  font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
+  max-width: 56ch;
+}
+
+.featured-quote-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.featured-quote-avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-alt-2);
+  color: var(--muted);
+  overflow: hidden;
+}
+
+.featured-quote-meta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.featured-quote-name {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text);
+  font-size: var(--text-sm);
+}
+
+.featured-quote-role {
   color: var(--muted);
   font-size: var(--text-sm);
+}
+
+.featured-quote-role::before {
+  content: "\2014 ";
 }
 
 /* ============================================
