@@ -68,31 +68,31 @@
 /* Light mode: same warm palette family, luminance flipped. Dark stays the
    default (this brand's primary identity) -- light is an explicit,
    remembered choice via the header toggle, not a system-preference guess. */
-/* Light mode palette: https://coolors.co/03045e-0077b6-00b4d8-90e0ef-caf0f8
-   Only #03045e and #0077b6 have enough contrast against this palette's own
-   light backgrounds to serve as text (#00b4d8 and #90e0ef both fail 3:1
-   against #caf0f8) -- so the two darkest colors carry every text/interactive
-   role, and the three lightest are reserved for surfaces. #00b4d8 still
-   appears as a solid accent fill (dots, chips) where it's a shape, not text. */
+/* Light mode palette (teal/white experiment): #FFFFFF #C8E7E9 #203535
+   #0099A3 #344E4E #006269 #DBE9EE. Background is pure white, as requested.
+   #0099A3 only reaches ~3.45:1 against white -- enough for a solid fill or
+   large/decorative text, not for body copy -- so the three near-black/deep
+   teal tones (#203535, #344E4E, #006269) carry text and interactive-text
+   roles instead, each still distinct enough to preserve real hierarchy. */
 :root[data-theme="light"] {
-  --bg: #caf0f8;
-  --bg-alt: #90e0ef;
-  --bg-alt-2: #ffffff;
+  --bg: #ffffff;
+  --bg-alt: #dbe9ee;
+  --bg-alt-2: #c8e7e9;
   --bg-lift: #ffffff;
 
-  --text: #03045e;
-  --text-soft: #0077b6;
-  --muted: #0077b6;
-  --muted-dim: #0077b6;
+  --text: #203535;
+  --text-soft: #344e4e;
+  --muted: #006269;
+  --muted-dim: #0099a3;
 
-  --border: rgba(3, 4, 94, 0.14);
-  --border-strong: rgba(3, 4, 94, 0.28);
-  --border-accent: rgba(0, 119, 182, 0.4);
+  --border: rgba(32, 53, 53, 0.12);
+  --border-strong: rgba(32, 53, 53, 0.24);
+  --border-accent: rgba(0, 153, 163, 0.4);
 
-  --accent: #00b4d8;
-  --accent-light: #0077b6;
-  --accent-dim: #03045e;
-  --accent-soft: rgba(0, 119, 182, 0.12);
+  --accent: #0099a3;
+  --accent-light: #006269;
+  --accent-dim: #203535;
+  --accent-soft: rgba(0, 153, 163, 0.12);
 }
 
 /* ============================================
@@ -310,7 +310,7 @@ section:first-of-type {
 }
 
 :root[data-theme="light"] .cursor-ring {
-  background: rgba(202, 240, 248, 0.6);
+  background: rgba(255, 255, 255, 0.65);
 }
 
 .cursor-active .cursor-dot,
@@ -521,7 +521,7 @@ section:first-of-type {
 }
 
 :root[data-theme="light"] .site-header.is-scrolled {
-  background: rgba(202, 240, 248, 0.82);
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .header-inner {
