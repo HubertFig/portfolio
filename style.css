@@ -566,6 +566,19 @@ section:first-of-type {
   white-space: nowrap;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Duplicate of the header-controls availability, shown only on mobile
+   (directly under the name instead of off in the icon row) -- see the
+   max-width:768px block below. */
+.header-brand .availability--brand {
+  display: none;
+}
+
 .status-dot {
   width: 6px;
   height: 6px;
@@ -1986,30 +1999,44 @@ textarea.field-input {
 }
 
 @media (max-width: 768px) {
-  .header-inner { flex-wrap: wrap; row-gap: var(--space-2); transition: padding var(--dur) var(--ease); }
-  .header-controls { gap: var(--space-4); flex-wrap: wrap; justify-content: flex-end; }
-  .availability { order: 3; flex-basis: 100%; justify-content: flex-end; }
+  /* One simple, subtle header: full name with availability directly
+     underneath (instead of off in the icon row), controls at top-right. */
+  .header-inner { align-items: flex-start; transition: padding var(--dur) var(--ease); }
+  .header-brand { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .header-brand .availability--brand { display: inline-flex; }
+  .header-controls > .availability { display: none; }
+  .header-controls { gap: var(--space-4); }
   .site-nav { display: none; }
   .nav-toggle { display: inline-flex; }
 
-  /* Scrolled state: collapse to a small persistent bar -- name shortens
-     to initials and the availability row drops out entirely, leaving
-     just initials + theme toggle + hamburger. Restores the moment the
-     page scrolls back to the top. */
+  /* Name crossfades to initials rather than swapping abruptly -- both
+     spans are stacked in place (short one absolutely positioned over
+     the full one) so opacity can transition between them. */
+  .logo { position: relative; display: inline-block; }
+  .logo-full { transition: opacity var(--dur) var(--ease); }
+  .logo-short {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease);
+  }
+
+  /* Scrolled state: collapse further -- name dissolves into initials and
+     the availability line drops out entirely, leaving just initials +
+     theme toggle + hamburger. Restores the moment the page scrolls
+     back to the top. */
   .site-header.is-scrolled .header-inner {
     padding-top: var(--space-3);
     padding-bottom: var(--space-3);
   }
-  .site-header.is-scrolled .logo-full { display: none; }
-  .site-header.is-scrolled .logo-short { display: inline; }
-  .site-header.is-scrolled .availability { display: none; }
+  .site-header.is-scrolled .logo-full { opacity: 0; }
+  .site-header.is-scrolled .logo-short { opacity: 1; }
+  .site-header.is-scrolled .header-brand .availability--brand { display: none; }
 
-  /* Header wraps to two rows on mobile (availability drops below the
-     icon row), so it's taller than the single-row desktop header --
-     both the hero's own offset and anchor-jump scroll offset need to
-     clear that extra row instead of overlapping it. */
-  [id] { scroll-margin-top: 175px; }
-  .hero { padding-top: 200px; }
+  [id] { scroll-margin-top: 110px; }
+  .hero { padding-top: 130px; }
   .hero-actions { gap: var(--space-5); }
 
   .about-layout { grid-template-columns: 1fr; }
