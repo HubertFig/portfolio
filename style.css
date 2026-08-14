@@ -103,6 +103,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: hidden;
 }
 
 body {
@@ -114,6 +115,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Extremely subtle film-grain + radial light -- present but not consciously
@@ -538,6 +540,8 @@ section:first-of-type {
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .header-controls {
@@ -1970,12 +1974,18 @@ textarea.field-input {
 }
 
 @media (max-width: 768px) {
-  .header-controls { gap: var(--space-4); }
-  .availability span:not(.status-dot) { display: none; }
+  .header-inner { flex-wrap: wrap; row-gap: var(--space-2); }
+  .header-controls { gap: var(--space-4); flex-wrap: wrap; justify-content: flex-end; }
+  .availability { order: 3; flex-basis: 100%; justify-content: flex-end; }
   .site-nav { display: none; }
   .nav-toggle { display: inline-flex; }
 
-  .hero { padding-top: calc(var(--space-8) + 56px); }
+  /* Header wraps to two rows on mobile (availability drops below the
+     icon row), so it's taller than the single-row desktop header --
+     both the hero's own offset and anchor-jump scroll offset need to
+     clear that extra row instead of overlapping it. */
+  [id] { scroll-margin-top: 175px; }
+  .hero { padding-top: 200px; }
   .hero-actions { gap: var(--space-5); }
 
   .about-layout { grid-template-columns: 1fr; }
