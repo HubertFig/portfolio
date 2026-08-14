@@ -767,6 +767,14 @@ body.menu-open {
   overflow: hidden;
 }
 
+/* The header sits above the full-screen mobile menu (z-index 100 vs 90)
+   so its own toggle/close controls stay usable while the menu is open --
+   but that also means the header's availability row would otherwise
+   render on top of the menu, duplicating the copy already in its footer. */
+body.menu-open .header-inner .availability {
+  visibility: hidden;
+}
+
 /* ============================================
    Hero
    ============================================ */
