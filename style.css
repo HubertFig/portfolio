@@ -544,6 +544,10 @@ section:first-of-type {
   flex-shrink: 0;
 }
 
+.logo-short {
+  display: none;
+}
+
 .header-controls {
   display: flex;
   align-items: center;
@@ -1982,11 +1986,23 @@ textarea.field-input {
 }
 
 @media (max-width: 768px) {
-  .header-inner { flex-wrap: wrap; row-gap: var(--space-2); }
+  .header-inner { flex-wrap: wrap; row-gap: var(--space-2); transition: padding var(--dur) var(--ease); }
   .header-controls { gap: var(--space-4); flex-wrap: wrap; justify-content: flex-end; }
   .availability { order: 3; flex-basis: 100%; justify-content: flex-end; }
   .site-nav { display: none; }
   .nav-toggle { display: inline-flex; }
+
+  /* Scrolled state: collapse to a small persistent bar -- name shortens
+     to initials and the availability row drops out entirely, leaving
+     just initials + theme toggle + hamburger. Restores the moment the
+     page scrolls back to the top. */
+  .site-header.is-scrolled .header-inner {
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+  .site-header.is-scrolled .logo-full { display: none; }
+  .site-header.is-scrolled .logo-short { display: inline; }
+  .site-header.is-scrolled .availability { display: none; }
 
   /* Header wraps to two rows on mobile (availability drops below the
      icon row), so it's taller than the single-row desktop header --
