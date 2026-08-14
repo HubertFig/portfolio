@@ -3,6 +3,28 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ------------------------------------------------------------------
+// Dark / light mode: defaults to dark (this brand's primary identity);
+// the toggle is an explicit, remembered choice. The actual attribute
+// is set as early as possible by an inline script in <head>, before
+// first paint, so there's no flash of the wrong theme -- this just
+// wires up the button and keeps localStorage in sync.
+// ------------------------------------------------------------------
+const root = document.documentElement;
+const themeToggles = document.querySelectorAll(".theme-toggle");
+
+function currentTheme() {
+  return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+}
+
+themeToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
+});
+
+// ------------------------------------------------------------------
 // Sticky nav: backdrop blur only once the page has actually scrolled
 // ------------------------------------------------------------------
 const header = document.querySelector(".site-header");

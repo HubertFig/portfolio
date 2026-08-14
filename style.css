@@ -65,6 +65,30 @@
   --dur-slow: 750ms;
 }
 
+/* Light mode: same warm palette family, luminance flipped. Dark stays the
+   default (this brand's primary identity) -- light is an explicit,
+   remembered choice via the header toggle, not a system-preference guess. */
+:root[data-theme="light"] {
+  --bg: #f8f5f0;
+  --bg-alt: #efe8dd;
+  --bg-alt-2: #e6ddce;
+  --bg-lift: #ffffff;
+
+  --text: #1a1512;
+  --text-soft: #4a4038;
+  --muted: #756a5c;
+  --muted-dim: #948a7b;
+
+  --border: rgba(26, 21, 18, 0.1);
+  --border-strong: rgba(26, 21, 18, 0.22);
+  --border-accent: rgba(150, 86, 28, 0.35);
+
+  --accent: #7a4416;
+  --accent-light: #96561c;
+  --accent-dim: #5c3712;
+  --accent-soft: rgba(150, 86, 28, 0.1);
+}
+
 /* ============================================
    Reset & base
    ============================================ */
@@ -191,7 +215,7 @@ section:first-of-type {
 
 ::selection {
   background: var(--accent);
-  color: var(--text);
+  color: #fdf6ee;
 }
 
 /* Reveal system: text/image blocks fade + lift into place as they cross the
@@ -277,6 +301,10 @@ section:first-of-type {
   will-change: transform, width, height, margin;
   transition: opacity var(--dur-fast) var(--ease), width var(--dur) var(--ease),
     height var(--dur) var(--ease), margin var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+:root[data-theme="light"] .cursor-ring {
+  background: rgba(248, 245, 240, 0.55);
 }
 
 .cursor-active .cursor-dot,
@@ -486,6 +514,10 @@ section:first-of-type {
   -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
 
+:root[data-theme="light"] .site-header.is-scrolled {
+  background: rgba(248, 245, 240, 0.78);
+}
+
 .header-inner {
   display: flex;
   justify-content: space-between;
@@ -567,6 +599,57 @@ section:first-of-type {
 .site-nav a:hover::after,
 .site-nav a[aria-current="page"]::after {
   transform: scaleX(1);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+.theme-toggle .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.theme-toggle .icon-moon {
+  opacity: 1;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-sun {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+:root[data-theme="light"] .theme-toggle .icon-moon {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .nav-toggle {
@@ -763,6 +846,10 @@ body.menu-open {
   opacity: 0.55;
   filter: grayscale(1) brightness(1.6);
   transition: opacity var(--dur-fast) var(--ease);
+}
+
+:root[data-theme="light"] .logo-marquee-item {
+  filter: grayscale(1) brightness(0.55);
 }
 
 .logo-marquee-item:hover {
