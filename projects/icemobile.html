@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<meta name="theme-color" content="#c2410c">
+<meta name="theme-color" content="#090605">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Clubleaf x IceMobile &mdash; Hubert Figaroa">
 <meta property="og:description" content="UX Design case study: helping Picnic customers make more sustainable grocery choices.">
@@ -23,50 +23,56 @@
 <meta name="twitter:image" content="https://www.hubertfigaroa.com/images/icemobile.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
-<script>
-  var storedTheme = localStorage.getItem("theme");
-  if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
-</script>
 </head>
 <body id="top">
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
-  <div class="wrap header-inner">
-    <a class="logo" href="../">HF</a>
+  <div class="wrap-wide header-inner">
+    <a class="logo" href="../">Hubert Figaroa</a>
     <div class="header-controls">
+      <p class="availability"><span class="status-dot" aria-hidden="true"></span><span>Available for opportunities</span></p>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="../#work" class="link-underline">Work</a>
-        <a href="../#about" class="link-underline">About</a>
-        <a href="../#reviews" class="link-underline">Reviews</a>
-        <a href="../#contact" class="link-underline">Contact</a>
-        <a href="../hubert-figaroa-cv.pdf" class="link-underline" download>CV</a>
+        <a href="../#work">Work</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      </button>
-      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
-        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
   </div>
 </header>
 
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-nav">
+    <li><a href="../#work">Work</a></li>
+    <li><a href="../#about">About</a></li>
+    <li><a href="../#contact">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <p class="availability"><span class="status-dot" aria-hidden="true"></span><span>Available for opportunities</span></p>
+    <a href="mailto:info@hubertfigaroa.com">info@hubertfigaroa.com</a>
+    <a href="../hubert-figaroa-cv.pdf" download>Download CV</a>
+  </div>
+</div>
+
 <main id="main-content" tabindex="-1">
   <article class="case-study">
-    <div class="wrap wrap-wide">
-      <a class="back-link link-underline" href="../#work"><span aria-hidden="true">&larr; </span>Back to work</a>
-      <p class="case-eyebrow">UX Design</p>
+    <div class="wrap-wide">
+      <a class="back-link" href="../#work"><span aria-hidden="true">&larr; </span>Back to work</a>
+      <p class="case-eyebrow">UX Design &mdash; 01 Overview</p>
       <h1>Clubleaf &times; IceMobile</h1>
       <p class="case-tagline">Providing Picnic customers with the option to make more sustainable choices.</p>
       <dl class="case-meta-list">
         <div><dt>Role</dt><dd>Researcher / Designer</dd></div>
         <div><dt>For</dt><dd>Clubleaf &times; IceMobile, Picnic</dd></div>
+        <div><dt>Timeline</dt><dd class="placeholder">[TIMELINE]</dd></div>
+        <div><dt>Tools</dt><dd class="placeholder">[TOOLS]</dd></div>
       </dl>
 
       <div class="contribution">
@@ -103,45 +109,44 @@
       </div>
     </div>
 
-    <div class="case-hero-wrap" data-reveal>
+    <div class="case-hero-wrap" data-reveal-scale>
       <img src="../images/icemobile.jpg" alt="Several phone screens showing a grocery app with sustainability badges, green checkmarks on eco-friendly products, and a CO2 savings tracker." class="case-hero-image" width="800" height="533">
     </div>
 
     <div class="wrap case-body">
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">01</span>
+          <span class="section-eyebrow">02 &mdash; The Challenge</span>
           <h2>Scenario</h2>
         </div>
         <blockquote class="pull-quote">We aim to empower customers to make sustainable choices without feeling pressured.</blockquote>
-        <p>Using tools like infographics, we inform them about sustainability, reduce confusion, and alleviate greenwashing fears by providing transparency about production processes and certifications.</p>
+        <p>Using tools like infographics, the goal was to inform shoppers about sustainability, reduce confusion, and alleviate greenwashing fears by providing transparency about production processes and certifications.</p>
       </section>
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">02</span>
-          <h2>Problem analysis</h2>
+          <span class="section-eyebrow">03 &mdash; Research</span>
+          <h2>Research</h2>
         </div>
-        <p>Picnic's assortment features numerous non-sustainable products, with limited visibility or promotion of sustainable options. Additionally, 43% of consumers do not actively consider product sustainability, highlighting a significant awareness gap.</p>
-        <p>I led the research behind these findings: desk research and trend analysis, field research through interviews and observations, and later usability testing on the concepts &mdash; including A/B and street tests in Rotterdam. One clear signal from that testing: people responded better to simple icons than to video, preferred a familiar vertical-scroll layout, and pushed back on anything that felt like sustainability was being forced on them rather than offered.</p>
+        <p>Picnic's assortment features numerous non-sustainable products, with limited visibility or promotion of sustainable options. I led the research behind these findings: desk research and trend analysis, field research through interviews and observations, and later usability testing on the concepts &mdash; including A/B and street tests in Rotterdam.</p>
       </section>
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">03</span>
-          <h2>Findings</h2>
+          <span class="section-eyebrow">04 &mdash; Insights</span>
+          <h2>Insights</h2>
         </div>
         <ul>
-          <li>Clubleaf focuses on several of the United Nations' 17 Sustainable Development Goals in their projects.</li>
-          <li>Companies are taking significant steps to reduce their carbon footprint but fail to engage consumers in these efforts.</li>
+          <li><strong>43% of consumers</strong> do not actively consider product sustainability while shopping &mdash; a significant awareness gap.</li>
+          <li>Shoppers responded better to <strong>simple icons than to video</strong>, preferred a familiar vertical-scroll layout, and pushed back on anything that felt like sustainability was being forced on them rather than offered.</li>
+          <li>Clubleaf's own business model buys carbon credits &mdash; one credit per ton of CO2 reduced &mdash; and helps partner companies build customer loyalty around that through reward mechanics. Aimed at a target group of cohabiting 25&ndash;35 year-olds, that model became the constraint we designed against: any concept had to plug into a rewards structure Clubleaf could actually fund.</li>
         </ul>
-        <p>Clubleaf's own business model buys carbon credits &mdash; one credit per ton of CO2 reduced &mdash; and helps partner companies build customer loyalty around that through reward mechanics. That model, aimed at a target group of cohabiting 25&ndash;35 year-olds, became the constraint we designed against: any concept had to plug into a rewards structure Clubleaf could actually fund.</p>
       </section>
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">04</span>
-          <h2>Proposition</h2>
+          <span class="section-eyebrow">05 &mdash; Ideation</span>
+          <h2>Ideation</h2>
         </div>
         <p>To promote sustainability in grocery shopping, we developed three concepts. <strong>"Know Your Groceries"</strong> educates consumers about product production through digital tools like videos and illustrations. <strong>"Choose Your Emissions"</strong> encourages selecting sustainable alternatives with subtle guidance. <strong>"Motivation through Extra Information"</strong> uses visualizations to show the climate impact of products, inspiring informed choices.</p>
         <p>The concept came together under one line: <strong>"Save your wallet, save the planet."</strong> Sustainability had to pay for itself, not just feel good.</p>
@@ -149,25 +154,18 @@
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">05</span>
-          <h2>Sustainable Saving Card</h2>
+          <span class="section-eyebrow">06 &mdash; Design</span>
+          <h2>Sustainable Saving Card &amp; CO2 meter</h2>
         </div>
-        <p>The card rewards consumers with stickers for adding sustainable products to their cart. Once the card is full, customers can redeem it for free sustainable products, offsetting higher prices. A clear icon highlights sustainable options, discouraging corporate greenwashing.</p>
+        <p>The <strong>Sustainable Saving Card</strong> rewards consumers with stickers for adding sustainable products to their cart. Once the card is full, customers can redeem it for free sustainable products, offsetting higher prices. A clear icon highlights sustainable options, discouraging corporate greenwashing.</p>
         <figure class="case-inline-figure">
           <img src="../images/icemobile-savingcard.jpg" alt="The digital Sustainable Saving Card, showing six leaf-icon stickers earned from sustainable purchases and a button to claim a free product." class="case-inline-image" width="1200" height="1146" loading="lazy">
         </figure>
-      </section>
-
-      <section class="case-section" data-reveal>
-        <div class="section-head">
-          <span class="section-eyebrow">06</span>
-          <h2>Pop-up & CO2 meter</h2>
-        </div>
-        <p>A pop-up suggests sustainable alternatives to customers who haven't chosen any yet, with infographics that build trust and help combat greenwashing.</p>
+        <p>A <strong>pop-up</strong> suggests sustainable alternatives to customers who haven't chosen any yet, with infographics that build trust and help combat greenwashing.</p>
         <figure class="case-inline-figure">
           <img src="../images/icemobile-popup.jpg" alt="A pop-up in the Picnic app suggesting a more sustainable egg product, with 'No thanks' and 'Choose sustainable' buttons." class="case-inline-image" width="1144" height="1200" loading="lazy">
         </figure>
-        <p>Users can also track the amount of CO2 or plastic they've saved, with comparisons to everyday items like T-shirts, straws, or bottles &mdash; visualizing their impact and motivating more sustainable choices over time.</p>
+        <p>Shoppers can also track the amount of CO2 or plastic they've saved, with comparisons to everyday items like T-shirts, straws, or bottles.</p>
         <figure class="case-inline-figure">
           <img src="../images/icemobile-co2.jpg" alt="A savings visualization showing 200 grams of CO2 saved, compared to recycling 2 T-shirts, avoiding 86 plastic straws, or recycling 10 one-liter bottles." class="case-inline-image" width="1200" height="749" loading="lazy">
         </figure>
@@ -175,29 +173,56 @@
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">07</span>
+          <span class="section-eyebrow">07 &mdash; Testing</span>
+          <h2>Testing</h2>
+        </div>
+        <p>The Saving Card, pop-up, and CO2 meter were shaped and validated through the same A/B and street testing described earlier: shoppers responded to simple icons over video, a familiar scroll pattern, and rewards that felt offered rather than forced.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">08 &mdash; Outcome</span>
           <h2>Outcome</h2>
         </div>
-        <p>The Sustainable Saving Card, the pop-up, and the CO2/plastic-savings tracker were shaped directly by A/B and street testing in Rotterdam &mdash; including the finding that shoppers preferred simple icons over video and pushed back on anything that felt forced rather than offered. This was delivered as a four-person course project for Clubleaf &times; IceMobile within Picnic's app; I don't have post-handover deployment metrics to report here.</p>
+        <p>The Sustainable Saving Card, the pop-up, and the CO2/plastic-savings tracker were delivered as a four-person course project for Clubleaf &times; IceMobile within Picnic's app; I don't have post-handover deployment metrics to report here.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">09 &mdash; Reflection</span>
+          <h2>Reflection</h2>
+        </div>
+        <p>The brief started as an awareness problem &mdash; "empower customers without pressuring them" &mdash; but the testing kept pointing somewhere more pragmatic: shoppers didn't need more convincing that sustainability mattered, they needed it to cost them less. "Save your wallet, save the planet" only became the concept's spine once we let go of the assumption that the fix was informational.</p>
       </section>
     </div>
   </article>
 
   <nav class="next-project" aria-label="Next project">
-    <div class="wrap">
+    <div class="wrap-wide">
       <a class="next-project-link" data-reveal href="wereldmuseum">
-        <span class="eyebrow">Next project</span>
-        <h2>Wereldmuseum Amsterdam <span class="btn-arrow" aria-hidden="true">&rarr;</span></h2>
+        <span class="eyebrow-label">Next project</span>
+        <h2>Wereldmuseum Amsterdam <span class="cta-arrow" aria-hidden="true">&rarr;</span></h2>
       </a>
     </div>
   </nav>
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
-    <a href="https://www.linkedin.com/in/hubertfigaroa/" class="back-to-top link-underline" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="#top" class="back-to-top link-underline">Back to top<span aria-hidden="true"> &uarr;</span></a>
+  <div class="wrap-wide">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-brand">Hubert Figaroa</span>
+        <span class="footer-role">UX / Product Designer &mdash; The Netherlands</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/hubertfigaroa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:info@hubertfigaroa.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+      <a href="#top" class="back-to-top">Back to top<span aria-hidden="true"> &uarr;</span></a>
+    </div>
   </div>
 </footer>
 

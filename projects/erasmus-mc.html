@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<meta name="theme-color" content="#c2410c">
+<meta name="theme-color" content="#090605">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Erasmus MC &mdash; Hubert Figaroa">
 <meta property="og:description" content="UX Design case study: Druppie, a mascot that helps Erasmus MC patients manage their fluid balance.">
@@ -23,50 +23,56 @@
 <meta name="twitter:image" content="https://www.hubertfigaroa.com/images/erasmus-mc.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
-<script>
-  var storedTheme = localStorage.getItem("theme");
-  if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
-</script>
 </head>
 <body id="top">
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
-  <div class="wrap header-inner">
-    <a class="logo" href="../">HF</a>
+  <div class="wrap-wide header-inner">
+    <a class="logo" href="../">Hubert Figaroa</a>
     <div class="header-controls">
+      <p class="availability"><span class="status-dot" aria-hidden="true"></span><span>Available for opportunities</span></p>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="../#work" class="link-underline">Work</a>
-        <a href="../#about" class="link-underline">About</a>
-        <a href="../#reviews" class="link-underline">Reviews</a>
-        <a href="../#contact" class="link-underline">Contact</a>
-        <a href="../hubert-figaroa-cv.pdf" class="link-underline" download>CV</a>
+        <a href="../#work">Work</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      </button>
-      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
-        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
   </div>
 </header>
 
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-nav">
+    <li><a href="../#work">Work</a></li>
+    <li><a href="../#about">About</a></li>
+    <li><a href="../#contact">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <p class="availability"><span class="status-dot" aria-hidden="true"></span><span>Available for opportunities</span></p>
+    <a href="mailto:info@hubertfigaroa.com">info@hubertfigaroa.com</a>
+    <a href="../hubert-figaroa-cv.pdf" download>Download CV</a>
+  </div>
+</div>
+
 <main id="main-content" tabindex="-1">
   <article class="case-study">
-    <div class="wrap wrap-wide">
-      <a class="back-link link-underline" href="../#work"><span aria-hidden="true">&larr; </span>Back to work</a>
-      <p class="case-eyebrow">UX Design</p>
+    <div class="wrap-wide">
+      <a class="back-link" href="../#work"><span aria-hidden="true">&larr; </span>Back to work</a>
+      <p class="case-eyebrow">UX Design &mdash; 01 Overview</p>
       <h1>Erasmus MC</h1>
       <p class="case-tagline">A personification/mascot that helps patients manage their fluid balance.</p>
       <dl class="case-meta-list">
         <div><dt>Role</dt><dd>Research / Designer</dd></div>
         <div><dt>For</dt><dd>Erasmus MC, Cardiology</dd></div>
+        <div><dt>Timeline</dt><dd class="placeholder">[TIMELINE]</dd></div>
+        <div><dt>Tools</dt><dd class="placeholder">[TOOLS]</dd></div>
       </dl>
 
       <div class="contribution">
@@ -107,14 +113,14 @@
       </div>
     </div>
 
-    <div class="case-hero-wrap" data-reveal>
+    <div class="case-hero-wrap" data-reveal-scale>
       <img src="../images/erasmus-mc.jpg" alt="Druppie, a smiling cartoon water-drop mascot, standing beside a tablet screen listing daily drinks like water, coffee, and juice for patients to log." class="case-hero-image" width="800" height="546">
     </div>
 
     <div class="wrap case-body">
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">01</span>
+          <span class="section-eyebrow">02 &mdash; The Challenge</span>
           <h2>Design challenge</h2>
         </div>
         <blockquote class="pull-quote">How can we simplify and potentially automate the process of fluid balance registration for patients and nurses in the Cardiology department?</blockquote>
@@ -122,73 +128,98 @@
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">02</span>
-          <h2>Scenario</h2>
-        </div>
-        <p>Patients in the Cardiology department of Erasmus MC are asked to track their fluid intake to monitor their heart condition. However, they face issues such as losing the registration paper, not having a pen available, or forgetting to record their intake. These challenges result in inaccuracies in monitoring their health condition.</p>
-      </section>
-
-      <section class="case-section" data-reveal>
-        <div class="section-head">
-          <span class="section-eyebrow">03</span>
+          <span class="section-eyebrow">03 &mdash; Research</span>
           <h2>Research</h2>
         </div>
-        <p>I ran research across three tracks:</p>
-        <ul>
-          <li><strong>Patients</strong> &mdash; to understand their challenges, preferences, and motivations.</li>
-          <li><strong>Specialists</strong> &mdash; to identify pain points in the current process and their expectations for an improved system.</li>
-          <li><strong>Field observations.</strong></li>
-        </ul>
-        <p>To map where things actually went wrong, I built a customer journey covering the full ward stay &mdash; registration, room transfer, daily prep, treatment, recovery, meals, toileting, and twice-daily weighing &mdash; layered with patient and nurse experience at each step, plus the room, tools (HiX system, wristband QR code, paper forms), and people involved.</p>
+        <p>Patients in the Cardiology department of Erasmus MC are asked to track their fluid intake to monitor their heart condition. However, they face issues such as losing the registration paper, not having a pen available, or forgetting to record their intake &mdash; inaccuracies that hurt the reliability of their monitoring.</p>
+        <p>I ran research across three tracks: <strong>patients</strong>, to understand their challenges and motivations; <strong>specialists</strong>, to identify pain points in the current process; and <strong>field observations</strong> on the ward itself.</p>
+        <p>To map where things actually went wrong, I built a customer journey covering the full ward stay &mdash; registration, room transfer, daily prep, treatment, recovery, meals, toileting, and twice-daily weighing &mdash; layered with patient and nurse experience at each step.</p>
         <figure class="case-inline-figure">
           <img src="../images/erasmus-mc-journey.jpg" alt="Customer journey map for patient and nurse, showing experience ratings, touchpoints, tools, and people involved at each stage of the fluid-balance tracking process." class="case-inline-image" width="1200" height="1049" loading="lazy">
         </figure>
-        <p>I also researched existing fluid-tracking technology &mdash; voice-controlled measuring cups, connected scales, monitoring apps &mdash; but found the implementation and maintenance costs too high for the cardiology ward to adopt. That ruled out a hardware-led fix and pointed toward a lower-cost, motivation-first solution instead.</p>
       </section>
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">04</span>
-          <h2>Desired situation</h2>
+          <span class="section-eyebrow">04 &mdash; Insights</span>
+          <h2>Insights</h2>
         </div>
-        <p>Based on that research, my team and I landed on personification as the direction: a character that explains to patients why tracking their fluid balance matters, while motivating them to take ownership of the process. That, in turn, fosters trust in the monitoring system.</p>
+        <ul>
+          <li>Paper-based tracking failed for mundane, physical reasons &mdash; a missing pen, a lost form &mdash; not because patients didn't understand why it mattered.</li>
+          <li>We researched existing fluid-tracking technology &mdash; voice-controlled measuring cups, connected scales, monitoring apps &mdash; but found the implementation and maintenance costs too high for the cardiology ward to adopt.</li>
+          <li>That ruled out a hardware-led fix and pointed toward a lower-cost, motivation-first solution instead.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">05 &mdash; Ideation</span>
+          <h2>Ideation</h2>
+        </div>
+        <p>Based on that research, my team and I landed on personification as the direction: a character that explains to patients why tracking their fluid balance matters, while motivating them to take ownership of the process &mdash; fostering trust in the monitoring system rather than treating it as one more clinical chore.</p>
         <p>The team then designed Druppie around education, positive affirmations, and nudges &mdash; aimed at promoting healthy behavioral change without feeling clinical.</p>
       </section>
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">05</span>
+          <span class="section-eyebrow">06 &mdash; Design</span>
           <h2>Final design</h2>
         </div>
-        <p><strong>Progress overview</strong> &mdash; a visual graph showing daily intake with motivational messages from Druppie.</p>
+        <p>The final concept centers on a <strong>progress overview</strong> &mdash; a visual graph showing daily intake with motivational messages from Druppie, shown at the top of this page.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">07 &mdash; Testing</span>
+          <h2>Testing</h2>
+        </div>
         <p>I organized and ran the usability test myself, with three people who had real experience with fluid-balance tracking through heart conditions &mdash; one recently discharged after a cardiac admission, two living with a pacemaker. That test shaped the final character and interaction, and confirmed the "Wist-je-datjes" (did-you-know) prompts were landing as intended: informative rather than preachy.</p>
       </section>
 
       <section class="case-section" data-reveal>
         <div class="section-head">
-          <span class="section-eyebrow">06</span>
+          <span class="section-eyebrow">08 &mdash; Outcome</span>
           <h2>Outcome</h2>
         </div>
         <p>Druppie, the progress overview, and the "Wist-je-datjes" prompts were delivered as the final concept for Erasmus MC's Cardiology department, validated through usability testing with three patients with real cardiac experience. This was a four-person course project; I don't have post-handover deployment metrics to report here.</p>
+      </section>
+
+      <section class="case-section" data-reveal>
+        <div class="section-head">
+          <span class="section-eyebrow">09 &mdash; Reflection</span>
+          <h2>Reflection</h2>
+        </div>
+        <p>My contribution here sat upstream of the final visuals &mdash; research, journey mapping, and problem framing, not the character work itself. Seeing how directly that framing shaped Druppie's tone &mdash; educational, not clinical &mdash; was a good reminder of how much of a design decision gets made before anyone opens a design tool.</p>
       </section>
     </div>
   </article>
 
   <nav class="next-project" aria-label="Next project">
-    <div class="wrap">
+    <div class="wrap-wide">
       <a class="next-project-link" data-reveal href="icemobile">
-        <span class="eyebrow">Next project</span>
-        <h2>Clubleaf &times; IceMobile <span class="btn-arrow" aria-hidden="true">&rarr;</span></h2>
+        <span class="eyebrow-label">Next project</span>
+        <h2>Clubleaf &times; IceMobile <span class="cta-arrow" aria-hidden="true">&rarr;</span></h2>
       </a>
     </div>
   </nav>
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
-    <a href="https://www.linkedin.com/in/hubertfigaroa/" class="back-to-top link-underline" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="#top" class="back-to-top link-underline">Back to top<span aria-hidden="true"> &uarr;</span></a>
+  <div class="wrap-wide">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-brand">Hubert Figaroa</span>
+        <span class="footer-role">UX / Product Designer &mdash; The Netherlands</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/hubertfigaroa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:info@hubertfigaroa.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+      <a href="#top" class="back-to-top">Back to top<span aria-hidden="true"> &uarr;</span></a>
+    </div>
   </div>
 </footer>
 

@@ -11,60 +11,64 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#c2410c">
+<meta name="theme-color" content="#090605">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
-<script>
-  var storedTheme = localStorage.getItem("theme");
-  if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
-</script>
 </head>
 <body id="top">
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="logo" href="/">HF</a>
+<header class="site-header is-scrolled">
+  <div class="wrap-wide header-inner">
+    <a class="logo" href="/">Hubert Figaroa</a>
     <div class="header-controls">
       <nav class="site-nav" id="site-nav" aria-label="Primary">
-        <a href="/#work" class="link-underline">Work</a>
-        <a href="/#about" class="link-underline">About</a>
-        <a href="/#reviews" class="link-underline">Reviews</a>
-        <a href="/#contact" class="link-underline">Contact</a>
-        <a href="/hubert-figaroa-cv.pdf" class="link-underline" download>CV</a>
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-        <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-        <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      </button>
-      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
-        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
   </div>
 </header>
 
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-nav">
+    <li><a href="/#work">Work</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <a href="mailto:info@hubertfigaroa.com">info@hubertfigaroa.com</a>
+  </div>
+</div>
+
 <main id="main-content" tabindex="-1">
-  <section class="hero wrap wrap-wide">
-    <p class="eyebrow">404</p>
-    <h1>Page not found</h1>
-    <p class="tagline">The page you're looking for doesn't exist &mdash; it may have moved, or the link might be broken.</p>
-    <div class="hero-actions">
-      <a href="/" class="btn btn-primary">Back to home<span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-      <a href="/#work" class="btn btn-outline">See my work</a>
+  <section class="hero" style="grid-template-columns: 1fr; min-height: 60vh;">
+    <div class="hero-copy">
+      <p class="eyebrow-label">404</p>
+      <h1>Page not<br>found.</h1>
+      <p class="hero-lead">The page you're looking for doesn't exist &mdash; it may have moved, or the link might be broken.</p>
+      <div class="hero-actions">
+        <a href="/" class="cta-link">Back to home<span class="cta-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="/#work" class="cta-link cta-link--muted">See my work<span class="cta-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p>&copy; <span id="year"></span> Hubert Figaroa</p>
-    <a href="https://www.linkedin.com/in/hubertfigaroa/" class="back-to-top link-underline" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="/" class="back-to-top link-underline">Back to home</a>
+  <div class="wrap-wide">
+    <div class="footer-bottom" style="margin-top:0; border-top:none; padding-top:0;">
+      <p>&copy; <span id="year"></span> Hubert Figaroa</p>
+      <a href="/" class="back-to-top">Back to home</a>
+    </div>
   </div>
 </footer>
 

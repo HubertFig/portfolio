@@ -1,44 +1,114 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Dark mode toggle: overrides system preference and persists the choice.
-const root = document.documentElement;
-const themeToggle = document.getElementById("theme-toggle");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function currentTheme() {
-  return root.getAttribute("data-theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+// ------------------------------------------------------------------
+// Sticky nav: backdrop blur only once the page has actually scrolled
+// ------------------------------------------------------------------
+const header = document.querySelector(".site-header");
+if (header) {
+  const setScrolled = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  };
+  setScrolled();
+  window.addEventListener("scroll", setScrolled, { passive: true });
 }
 
-themeToggle.addEventListener("click", () => {
-  const next = currentTheme() === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next);
-});
+// ------------------------------------------------------------------
+// Active nav link: highlights whichever section is currently in view
+// ------------------------------------------------------------------
+const navLinks = document.querySelectorAll(".site-nav a[href^='#'], .site-nav a[href*='#']");
+const sectionIds = ["work", "about", "contact"];
+const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
 
-// Mobile nav: collapsible menu below ~640px, where the full link row no longer fits.
+if (sections.length && navLinks.length) {
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          const match = link.getAttribute("href").endsWith(`#${entry.target.id}`);
+          if (match) link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+  sections.forEach((s) => navObserver.observe(s));
+}
+
+// ------------------------------------------------------------------
+// Mobile menu: full-screen overlay
+// ------------------------------------------------------------------
 const navToggle = document.getElementById("nav-toggle");
-const siteNav = document.getElementById("site-nav");
+const mobileMenu = document.getElementById("mobile-menu");
 
-function closeNav() {
+function closeMenu() {
+  if (!navToggle || !mobileMenu) return;
   navToggle.setAttribute("aria-expanded", "false");
-  siteNav.classList.remove("open");
+  mobileMenu.classList.remove("is-open");
+  document.body.classList.remove("menu-open");
 }
 
-navToggle.addEventListener("click", () => {
-  const expanded = navToggle.getAttribute("aria-expanded") === "true";
-  navToggle.setAttribute("aria-expanded", String(!expanded));
-  siteNav.classList.toggle("open");
+if (navToggle && mobileMenu) {
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!expanded));
+    mobileMenu.classList.toggle("is-open", !expanded);
+    document.body.classList.toggle("menu-open", !expanded);
+  });
+
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      const hashIndex = href.indexOf("#");
+      const isSamePageHash = hashIndex === 0;
+
+      if (isSamePageHash) {
+        // Same-page anchor: the browser's native scroll can no-op here,
+        // since body is still overflow:hidden (menu-close transition)
+        // at the moment the click's default action would fire. Close
+        // first, then scroll manually once the body is scrollable again.
+        e.preventDefault();
+        const target = document.getElementById(href.slice(1));
+        closeMenu();
+        requestAnimationFrame(() => {
+          if (target) {
+            target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+          }
+          history.pushState(null, "", href);
+        });
+      } else {
+        closeMenu();
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+}
+
+// ------------------------------------------------------------------
+// Expertise list: click to expand/collapse a short description
+// ------------------------------------------------------------------
+document.querySelectorAll(".expertise-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const item = trigger.closest(".expertise-item");
+    const isOpen = item.classList.contains("is-open");
+    item.classList.toggle("is-open", !isOpen);
+    trigger.setAttribute("aria-expanded", String(!isOpen));
+  });
 });
 
-siteNav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", closeNav);
-});
-
-// Testimonials: clamp to 2 lines, expand on click/Enter/Space when truncated.
-// Cards that don't actually overflow stay plain, non-interactive text --
-// otherwise they'd be a focusable "button" that does nothing when activated.
+// ------------------------------------------------------------------
+// Testimonials: clamp to 4 lines, expand on click/Enter/Space when
+// truncated. Cards that don't overflow stay plain, non-interactive text.
+// ------------------------------------------------------------------
 document.querySelectorAll(".testimonial").forEach((card) => {
   const quote = card.querySelector(".testimonial-quote p");
+  if (!quote) return;
   const isOverflowing = quote.scrollHeight > quote.clientHeight + 1;
   if (!isOverflowing) return;
 
@@ -62,15 +132,24 @@ document.querySelectorAll(".testimonial").forEach((card) => {
   });
 });
 
-// Scroll reveal: fades/lifts [data-reveal] blocks into place as they enter
-// the viewport, in the order they're actually encountered while scrolling.
-// Skipped entirely for prefers-reduced-motion, and progressively enhanced --
-// the .reveal-ready gate is only added here, so content stays fully visible
-// by default if this script fails or IntersectionObserver isn't supported.
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
+// ------------------------------------------------------------------
+// Scroll reveal: fades/lifts/reveals [data-reveal] blocks (and process
+// steps) into place as they enter the viewport, in scroll order. Skipped
+// for prefers-reduced-motion, and progressively enhanced -- the
+// .reveal-ready gate is only added here, so content stays visible if this
+// script fails or IntersectionObserver isn't supported.
+// ------------------------------------------------------------------
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
   document.body.classList.add("reveal-ready");
+
+  const revealTargets = document.querySelectorAll(
+    "[data-reveal], [data-reveal-scale], [data-reveal-line], .process-step"
+  );
+
+  revealTargets.forEach((el, i) => {
+    if (el.hasAttribute("data-reveal-group")) return;
+    el.style.setProperty("--i", i % 6);
+  });
 
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -81,18 +160,81 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
         }
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
   );
 
-  document.querySelectorAll("[data-reveal]").forEach((el) => {
-    revealObserver.observe(el);
+  revealTargets.forEach((el) => revealObserver.observe(el));
+}
+
+// ------------------------------------------------------------------
+// Custom cursor: desktop, hover-capable, fine-pointer devices only.
+// Never attached on touch devices; never removes default focus styles;
+// purely decorative and skipped entirely under reduced motion.
+// ------------------------------------------------------------------
+const supportsCustomCursor =
+  !prefersReducedMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+if (supportsCustomCursor) {
+  const dot = document.createElement("div");
+  dot.className = "cursor-dot";
+  const ring = document.createElement("div");
+  ring.className = "cursor-ring";
+  const ringLabel = document.createElement("span");
+  ring.appendChild(ringLabel);
+  document.body.append(dot, ring);
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX = mouseX;
+  let ringY = mouseY;
+  let active = false;
+
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      if (!active) {
+        active = true;
+        document.documentElement.classList.add("cursor-active");
+      }
+    },
+    { passive: true }
+  );
+
+  window.addEventListener("mouseleave", () => {
+    document.documentElement.classList.remove("cursor-active");
+    active = false;
+  });
+
+  function tick() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  const hoverTargets = document.querySelectorAll("[data-cursor-view]");
+  hoverTargets.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      ring.classList.add("is-label");
+      ringLabel.textContent = el.dataset.cursorView || "VIEW";
+    });
+    el.addEventListener("mouseleave", () => {
+      ring.classList.remove("is-label");
+      ringLabel.textContent = "";
+    });
   });
 }
 
+// ------------------------------------------------------------------
 // Contact form: opens the visitor's email client with the message
 // pre-filled, addressed to CONTACT_EMAIL. No backend required, so it
 // works the moment the page loads instead of depending on a third-party
 // form service being configured.
+// ------------------------------------------------------------------
 const CONTACT_EMAIL = "info@hubertfigaroa.com";
 
 const form = document.getElementById("contact-form");
@@ -106,10 +248,10 @@ if (form) {
     const message = form.message.value.trim();
 
     const subject = `Portfolio message from ${name}`;
-    const body = `${message}\n\n\u2014\n${name}\n${email}`;
+    const body = `${message}\n\n—\n${name}\n${email}`;
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    status.textContent = "Opening your email client\u2026";
+    status.textContent = "Opening your email client…";
     status.className = "form-status";
     window.location.href = mailto;
   });
