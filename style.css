@@ -149,6 +149,8 @@ img {
 
 .wrap-wide {
   max-width: var(--xwide-width);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 56px);
 }
 
 section {
