@@ -3,13 +3,17 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ------------------------------------------------------------------
-// Dark / light mode: defaults to sun position at the visitor's
-// location (light while the sun is up, dark after sundown), computed
-// via the browser's geolocation. The toggle overrides that with an
-// explicit, remembered choice, which always wins over the sun.
+// Dark / light mode, in priority order:
+//   1. An explicit choice from the toggle -- remembered forever,
+//      always wins over everything below.
+//   2. The visitor's device/OS dark-or-light setting (prefers-color-
+//      scheme), matched live if they flip it while the page is open.
+//   3. Sun position at the visitor's location (light while the sun is
+//      up, dark after sundown), for the rare browser/OS that doesn't
+//      expose a color-scheme preference at all.
 // The actual attribute is set as early as possible by an inline
 // script in <head>, before first paint, so there's no flash of the
-// wrong theme -- this wires up the button, resolves the sun-based
+// wrong theme -- this wires up the button, resolves OS and sun-based
 // theme, and keeps localStorage in sync.
 // ------------------------------------------------------------------
 const root = document.documentElement;
@@ -27,8 +31,32 @@ themeToggles.forEach((toggle) => {
   });
 });
 
+// OS/device color-scheme preference -- takes priority over the sun-
+// based fallback below, and is re-applied live if the visitor changes
+// their device setting while the page is open.
+const osDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+const osLightQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+
+function osThemePreference() {
+  if (osDarkQuery && osDarkQuery.matches) return "dark";
+  if (osLightQuery && osLightQuery.matches) return "light";
+  return null; // no OS preference exposed
+}
+
+function applyOSTheme() {
+  if (localStorage.getItem("theme")) return; // manual override wins
+  const os = osThemePreference();
+  if (!os) return;
+  root.setAttribute("data-theme", os);
+}
+
+applyOSTheme();
+if (osDarkQuery) osDarkQuery.addEventListener("change", applyOSTheme);
+if (osLightQuery) osLightQuery.addEventListener("change", applyOSTheme);
+
 // Sun-based auto theme -- only runs when the visitor hasn't made an
-// explicit choice via the toggle. Uses the standard NOAA/SunCalc solar
+// explicit choice via the toggle, and their browser doesn't expose an
+// OS color-scheme preference. Uses the standard NOAA/SunCalc solar
 // position formulas to find today's sunrise and sunset for the given
 // coordinates, then sets light mode between them and dark otherwise.
 // The result is cached so repeat visits paint the right theme
@@ -75,7 +103,7 @@ function getSunTimes(lat, lon, date) {
   return { sunrise: fromJulian(Jrise), sunset: fromJulian(Jset) };
 }
 
-if (!localStorage.getItem("theme") && navigator.geolocation) {
+if (!localStorage.getItem("theme") && !osThemePreference() && navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     (position) => {
       if (localStorage.getItem("theme")) return; // toggled while we were waiting
