@@ -8,13 +8,10 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 //      always wins over everything below.
 //   2. The visitor's device/OS dark-or-light setting (prefers-color-
 //      scheme), matched live if they flip it while the page is open.
-//   3. Sun position at the visitor's location (light while the sun is
-//      up, dark after sundown), for the rare browser/OS that doesn't
-//      expose a color-scheme preference at all.
 // The actual attribute is set as early as possible by an inline
 // script in <head>, before first paint, so there's no flash of the
-// wrong theme -- this wires up the button, resolves OS and sun-based
-// theme, and keeps localStorage in sync.
+// wrong theme -- this wires up the button, resolves the OS theme, and
+// keeps localStorage in sync.
 // ------------------------------------------------------------------
 const root = document.documentElement;
 const themeToggles = document.querySelectorAll(".theme-toggle");
@@ -31,9 +28,8 @@ themeToggles.forEach((toggle) => {
   });
 });
 
-// OS/device color-scheme preference -- takes priority over the sun-
-// based fallback below, and is re-applied live if the visitor changes
-// their device setting while the page is open.
+// OS/device color-scheme preference -- re-applied live if the visitor
+// changes their device setting while the page is open.
 const osDarkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 const osLightQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
 
@@ -54,70 +50,7 @@ applyOSTheme();
 if (osDarkQuery) osDarkQuery.addEventListener("change", applyOSTheme);
 if (osLightQuery) osLightQuery.addEventListener("change", applyOSTheme);
 
-// Sun-based auto theme -- only runs when the visitor hasn't made an
-// explicit choice via the toggle, and their browser doesn't expose an
-// OS color-scheme preference. Uses the standard NOAA/SunCalc solar
-// position formulas to find today's sunrise and sunset for the given
-// coordinates, then sets light mode between them and dark otherwise.
-// The result is cached so repeat visits paint the right theme
-// instantly (see the inline <head> script) while this quietly
-// refreshes it in the background.
-function getSunTimes(lat, lon, date) {
-  const rad = Math.PI / 180;
-  const dayMs = 86400000;
-  const J1970 = 2440588;
-  const J2000 = 2451545;
-  const e = rad * 23.4397;
-
-  const toJulian = (d) => d.valueOf() / dayMs - 0.5 + J1970;
-  const fromJulian = (j) => new Date((j + 0.5 - J1970) * dayMs);
-  const toDays = (d) => toJulian(d) - J2000;
-  const solarMeanAnomaly = (d) => rad * (357.5291 + 0.98560028 * d);
-  const eclipticLongitude = (M) => {
-    const C = rad * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M) + 0.0003 * Math.sin(3 * M));
-    const P = rad * 102.9372;
-    return M + C + P + Math.PI;
-  };
-  const declination = (l) => Math.asin(Math.sin(l) * Math.sin(e));
-  const julianCycle = (d, lw) => Math.round(d - 0.0009 - lw / (2 * Math.PI));
-  const approxTransit = (Ht, lw, n) => 0.0009 + (Ht + lw) / (2 * Math.PI) + n;
-  const solarTransitJ = (ds, M, L) => J2000 + ds + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
-  const hourAngle = (h, phi, d) =>
-    Math.acos((Math.sin(h) - Math.sin(phi) * Math.sin(d)) / (Math.cos(phi) * Math.cos(d)));
-
-  const lw = rad * -lon;
-  const phi = rad * lat;
-  const d = toDays(date);
-  const n = julianCycle(d, lw);
-  const ds = approxTransit(0, lw, n);
-  const M = solarMeanAnomaly(ds);
-  const L = eclipticLongitude(M);
-  const dec = declination(L);
-  const Jnoon = solarTransitJ(ds, M, L);
-
-  const h0 = -0.833 * rad;
-  const Hset = hourAngle(h0, phi, dec);
-  const Jset = solarTransitJ(approxTransit(Hset, lw, n), M, L);
-  const Jrise = Jnoon - (Jset - Jnoon);
-
-  return { sunrise: fromJulian(Jrise), sunset: fromJulian(Jset) };
-}
-
-if (!localStorage.getItem("theme") && !osThemePreference() && navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      if (localStorage.getItem("theme")) return; // toggled while we were waiting
-      const now = new Date();
-      const { sunrise, sunset } = getSunTimes(position.coords.latitude, position.coords.longitude, now);
-      if (Number.isNaN(sunrise.getTime()) || Number.isNaN(sunset.getTime())) return;
-      const theme = now >= sunrise && now < sunset ? "light" : "dark";
-      localStorage.setItem("theme-auto", theme);
-      root.setAttribute("data-theme", theme);
-    },
-    () => {}, // permission denied or unavailable -- keep the pre-paint default
-    { timeout: 8000, maximumAge: 30 * 60 * 1000 }
-  );
-}
+localStorage.removeItem("theme-auto"); // stale key from the retired sun-based auto theme
 
 // ------------------------------------------------------------------
 // Sticky nav: backdrop blur only once the page has actually scrolled

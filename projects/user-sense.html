@@ -31,8 +31,6 @@
     if (manual === "light") document.documentElement.setAttribute("data-theme", "light");
   } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
     document.documentElement.setAttribute("data-theme", "light");
-  } else if (!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) && localStorage.getItem("theme-auto") === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
   }
 </script>
 </head>
