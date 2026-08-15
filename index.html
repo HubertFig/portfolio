@@ -29,7 +29,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>
-  if (localStorage.getItem("theme") === "light") document.documentElement.setAttribute("data-theme", "light");
+  var t = localStorage.getItem("theme") || localStorage.getItem("theme-auto");
+  if (t === "light") document.documentElement.setAttribute("data-theme", "light");
 </script>
 <script type="application/ld+json">
 {
